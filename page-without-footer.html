@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightstone Property Recruitment - Main Page Without Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #051D2E;
+  --plum: #251233;
+  --white: #FFFFFF;
+  --cream: #F5F0EA;
+  --w90: rgba(255,255,255,0.9);
+  --w80: rgba(255,255,255,0.8);
+  --w70: rgba(255,255,255,0.7);
+  --w60: rgba(255,255,255,0.6);
+  --w55: rgba(255,255,255,0.55);
+  --w50: rgba(255,255,255,0.5);
+  --w45: rgba(255,255,255,0.45);
+  --w40: rgba(255,255,255,0.4);
+  --w35: rgba(255,255,255,0.35);
+  --w30: rgba(255,255,255,0.3);
+  --w25: rgba(255,255,255,0.25);
+  --w20: rgba(255,255,255,0.2);
+  --w15: rgba(255,255,255,0.15);
+  --w10: rgba(255,255,255,0.1);
+  --w08: rgba(255,255,255,0.08);
+  --w06: rgba(255,255,255,0.06);
+  --w05: rgba(255,255,255,0.05);
+  --w04: rgba(255,255,255,0.04);
+  --w03: rgba(255,255,255,0.03);
+  --w02: rgba(255,255,255,0.02);
+  --d80: rgba(5,29,46,0.8);
+  --d40: rgba(5,29,46,0.4);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--deep);
+  color:var(--white);
+  font-family:'EB Garamond',Georgia,serif;
+  line-height:1.75;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* Cursor */
+#C{position:fixed;width:8px;height:8px;background:#fff;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .25s,height .25s,opacity .25s;mix-blend-mode:difference}
+#CR{position:fixed;width:40px;height:40px;border:1px solid rgba(255,255,255,.4);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .5s cubic-bezier(.23,1,.32,1),height .5s cubic-bezier(.23,1,.32,1)}
+body:hover #C{opacity:1}
+
+/* Canvas */
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+
+/* Noise */
+body::before{
+  content:'';position:fixed;inset:0;z-index:99990;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* Hero */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:flex-end;
+  padding:0 7vw 9vh;overflow:hidden;padding-top:1in;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(ellipse 90% 70% at 110% -10%, rgba(37,18,51,.95) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 60% at -10% 110%, rgba(37,18,51,.7) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 50% 120%, rgba(5,29,46,.9) 0%, transparent 60%),
+    linear-gradient(150deg, #051D2E 0%, #071f32 35%, #0c1f36 60%, #051D2E 100%);
+}
+.hero-geo{
+  position:absolute;inset:0;z-index:2;overflow:hidden;
+}
+.hero-geo svg{
+  position:absolute;width:100%;height:100%;opacity:.07;
+}
+.hero-letter{
+  position:absolute;right:-5vw;top:50%;transform:translateY(-50%);
+  font-family:'Cormorant Garamond',serif;font-size:55vw;font-weight:700;
+  color:rgba(255,255,255,.018);line-height:1;pointer-events:none;z-index:2;
+  letter-spacing:-0.05em;user-select:none;
+  animation:letterFloat 20s ease-in-out infinite;
+}
+@keyframes letterFloat{0%,100%{transform:translateY(-50%) rotate(-2deg) scale(1)}50%{transform:translateY(-52%) rotate(-1deg) scale(1.02)}}
+.orb{
+  position:absolute;border-radius:50%;pointer-events:none;z-index:2;
+  filter:blur(80px);
+}
+.orb-1{width:600px;height:600px;background:rgba(37,18,51,.8);top:-200px;right:-100px;animation:o1 15s ease-in-out infinite}
+.orb-2{width:400px;height:400px;background:rgba(5,29,46,.9);bottom:-150px;left:5%;animation:o2 18s ease-in-out infinite}
+.orb-3{width:300px;height:300px;background:rgba(37,18,51,.5);top:30%;left:55%;animation:o3 12s ease-in-out infinite}
+@keyframes o1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,30px) scale(1.1)}}
+@keyframes o2{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}}
+@keyframes o3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-20px,40px) scale(0.9)}}
+.hero-scan{
+  position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden;
+}
+.hero-scan::before{
+  content:'';position:absolute;top:-100%;left:0;width:100%;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);
+  animation:scan 8s linear infinite;
+}
+@keyframes scan{from{top:-2px}to{top:100%}}
+.hero-lines{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background-image:repeating-linear-gradient(
+    -45deg,transparent,transparent 60px,
+    rgba(255,255,255,.012) 60px,rgba(255,255,255,.012) 61px
+  );
+}
+.hero-content{position:relative;z-index:10;max-width:1100px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:1rem;
+  padding:.7rem 1.8rem;
+  border:1px solid var(--w15);
+  background:var(--w04);
+  backdrop-filter:blur(10px);
+  margin-bottom:3rem;
+  animation:fadeUp 1s .2s both;
+}
+.hero-badge-dot{
+  width:6px;height:6px;background:#fff;border-radius:50%;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+.hero-badge-text{
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.35em;text-transform:uppercase;color:var(--w70);
+}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,8.5vw,11rem);
+  font-weight:300;line-height:.92;letter-spacing:-.03em;
+  margin-bottom:3rem;
+}
+.h1-line{display:block;overflow:hidden}
+.h1-line-inner{
+  display:block;
+  animation:lineReveal 1.3s cubic-bezier(.16,1,.3,1) both;
+}
+.h1-line:nth-child(1) .h1-line-inner{animation-delay:.3s}
+.h1-line:nth-child(2) .h1-line-inner{animation-delay:.45s}
+.h1-line:nth-child(3) .h1-line-inner{animation-delay:.6s}
+.h1-line:nth-child(4) .h1-line-inner{animation-delay:.75s}
+@keyframes lineReveal{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+.hero-h1 em{font-style:italic;color:var(--w90)}
+.hero-h1 strong{font-weight:600}
+.hero-sub{
+  max-width:620px;font-size:1.1rem;color:var(--w60);line-height:1.9;
+  margin-bottom:3.5rem;
+  animation:fadeUp 1.2s .9s both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-ctas{display:flex;gap:1.5rem;flex-wrap:wrap;animation:fadeUp 1.2s 1.1s both}
+.btn{
+  display:inline-flex;align-items:center;gap:.8rem;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;text-decoration:none;
+  padding:1.2rem 2.8rem;position:relative;overflow:hidden;cursor:none;
+  transition:all .4s ease;
+}
+.btn-solid{background:#fff;color:var(--deep)}
+.btn-solid::after{
+  content:'';position:absolute;inset:0;background:var(--deep);
+  transform:translateX(-102%);transition:transform .45s cubic-bezier(.16,1,.3,1);
+}
+.btn-solid:hover::after{transform:translateX(0)}
+.btn-solid:hover{color:#fff}
+.btn-solid span{position:relative;z-index:1}
+.btn-outline{
+  border:1px solid var(--w30);color:#fff;
+}
+.btn-outline::after{
+  content:'';position:absolute;inset:0;background:var(--w08);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.btn-outline:hover::after{transform:scaleX(1)}
+.btn-outline span{position:relative;z-index:1}
+.hero-stats-float{
+  position:absolute;right:7vw;bottom:10vh;z-index:10;
+  animation:fadeUp 1.3s 1.3s both;
+}
+.stat-col{display:flex;flex-direction:column;gap:2rem;align-items:flex-end}
+.stat-block{text-align:right}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;font-size:4.5rem;
+  font-weight:200;line-height:1;display:block;
+}
+.stat-l{
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--w40);
+}
+.stat-rule{width:1px;height:50px;background:var(--w15);margin-left:auto}
+.scroll-cue{
+  position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);
+  z-index:10;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  animation:fadeUp 1.5s 1.8s both;
+}
+.scroll-line{width:1px;height:70px;background:linear-gradient(to bottom,transparent,var(--w50));animation:scrollBlink 2s ease-in-out infinite}
+@keyframes scrollBlink{0%,100%{opacity:.3;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
+.scroll-label{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.4em;color:var(--w30);text-transform:uppercase}
+
+/* Ticker */
+.ticker{background:var(--plum);padding:1.1rem 0;overflow:hidden;border-top:1px solid var(--w08);border-bottom:1px solid var(--w08)}
+.ticker-track{display:flex;gap:0;animation:tk 40s linear infinite;width:max-content}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--w50);
+  padding:0 3.5rem;white-space:nowrap;display:flex;align-items:center;gap:3.5rem;
+}
+.ticker-item::after{content:'◆';font-size:5px;opacity:.35}
+
+/* Utilities */
+section{position:relative;z-index:5}
+.pad{padding:9rem 7vw}
+.pad-xl{padding:12rem 7vw}
+.lbl{
+  display:flex;align-items:center;gap:1rem;
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.45em;text-transform:uppercase;color:var(--w35);
+  margin-bottom:2rem;
+}
+.lbl::before{content:'';width:28px;height:1px;background:var(--w25);flex-shrink:0}
+.sh{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.6rem,4.5vw,5.5rem);
+  font-weight:300;line-height:1.05;letter-spacing:-.015em;
+}
+.sh em{font-style:italic}
+.sh strong{font-weight:600}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.on{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+.reveal.d4{transition-delay:.4s}.reveal.d5{transition-delay:.5s}
+
+/* Manifesto */
+.manifesto{
+  background:var(--deep);
+  padding:10rem 7vw;
+  position:relative;overflow:hidden;
+}
+.manifesto::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 100% at 50% 50%,rgba(37,18,51,.4) 0%,transparent 70%);
+}
+.manifesto-inner{position:relative;z-index:2}
+.manifesto-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,5.5rem);
+  font-weight:300;font-style:italic;line-height:1.25;letter-spacing:-.01em;
+  color:var(--w90);max-width:1100px;
+}
+.manifesto-quote span{
+  display:inline-block;border-bottom:1px solid var(--w20);padding-bottom:2px;
+}
+.manifesto-rule{
+  display:flex;align-items:center;gap:2rem;margin:4rem 0;
+}
+.manifesto-rule-line{flex:1;height:1px;background:linear-gradient(to right,var(--w15),transparent)}
+.manifesto-rule-diamond{width:6px;height:6px;background:var(--w30);transform:rotate(45deg)}
+.manifesto-body{
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:4rem;
+}
+.manifesto-p{font-size:1.05rem;color:var(--w55);line-height:1.9;max-width:560px}
+.arch-svg{
+  position:absolute;right:0;top:0;width:50%;height:100%;z-index:1;opacity:.06;
+  pointer-events:none;
+}
+
+/* Purpose */
+.purpose{
+  background:linear-gradient(160deg,#060f1a 0%,var(--deep) 50%,#040e18 100%);
+  padding:10rem 7vw;position:relative;overflow:hidden;
+}
+.purpose-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:8rem;align-items:start}
+.purpose-intro{font-size:1.1rem;color:var(--w55);line-height:1.9;margin-top:2.5rem;max-width:520px}
+.pillar-stack{margin-top:2rem;display:flex;flex-direction:column;gap:0}
+.pillar{
+  display:grid;grid-template-columns:100px 1fr;
+  padding:3rem 0;border-top:1px solid var(--w08);
+  transition:all .4s ease;cursor:none;position:relative;
+}
+.pillar::before{
+  content:'';position:absolute;left:0;top:0;height:100%;width:2px;
+  background:linear-gradient(to bottom,rgba(255,255,255,.3),rgba(255,255,255,.05));
+  transform:scaleY(0);transform-origin:top;transition:transform .5s ease;
+}
+.pillar:hover::before{transform:scaleY(1)}
+.pillar:hover{padding-left:1.5rem}
+.pillar:last-child{border-bottom:1px solid var(--w08)}
+.pillar-n{
+  font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:200;
+  color:rgba(255,255,255,.08);line-height:1;transition:color .4s;
+}
+.pillar:hover .pillar-n{color:rgba(255,255,255,.15)}
+.pillar-title{
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;margin-bottom:1rem;color:#fff;
+}
+.pillar-body{font-size:.95rem;color:var(--w50);line-height:1.85}
+.purpose-right{position:relative}
+.purpose-visual{
+  position:relative;padding:4rem;
+  border:1px solid var(--w08);
+  background:linear-gradient(135deg,rgba(37,18,51,.3) 0%,rgba(5,29,46,.5) 100%);
+}
+.purpose-visual::before{
+  content:'PURPOSE';
+  position:absolute;top:2rem;right:2rem;
+  font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:700;
+  color:rgba(255,255,255,.03);line-height:1;letter-spacing:-.05em;
+}
+.pv-stat{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--w08)}
+.pv-stat:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.pv-num{
+  font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:200;
+  line-height:1;color:#fff;display:block;
+}
+.pv-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--w35);display:block;margin-top:.5rem}
+.pv-desc{font-size:.9rem;color:var(--w45);line-height:1.75;margin-top:.8rem}
+
+/* Marquee */
+.marquee-section{
+  background:var(--plum);padding:5rem 0;overflow:hidden;
+  border-top:1px solid var(--w06);border-bottom:1px solid var(--w06);
+}
+.mrow{display:flex;gap:2rem;animation:mk 28s linear infinite;width:max-content;margin-bottom:2rem}
+.mrow:last-child{animation-direction:reverse;animation-duration:22s;margin-bottom:0}
+@keyframes mk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mcard{
+  width:260px;height:160px;flex-shrink:0;
+  border:1px solid var(--w10);
+  background:var(--w03);
+  padding:1.8rem;display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;
+  transition:border-color .4s,background .4s;
+}
+.mcard::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(circle at 30% 30%,var(--w05) 0%,transparent 60%);
+  opacity:0;transition:opacity .4s;
+}
+.mcard:hover{border-color:var(--w25);background:var(--w06)}
+.mcard:hover::before{opacity:1}
+.mcard-n{
+  position:absolute;top:.8rem;right:1.2rem;
+  font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:200;
+  color:rgba(255,255,255,.06);line-height:1;
+}
+.mcard-title{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--w55);margin-bottom:.3rem}
+.mcard-sub{font-size:.8rem;color:var(--w30);line-height:1.4}
+
+/* Services */
+.services-white{
+  background:var(--cream);color:var(--deep);
+  padding:10rem 7vw;position:relative;overflow:hidden;
+}
+.services-white::after{
+  content:'BPR';position:absolute;right:-3rem;bottom:-5rem;
+  font-family:'Cormorant Garamond',serif;font-size:30rem;font-weight:700;
+  color:rgba(5,29,46,.035);line-height:1;letter-spacing:-.05em;pointer-events:none;
+}
+.sw-lbl{color:rgba(5,29,46,.4)}
+.sw-lbl::before{background:rgba(5,29,46,.2)}
+.sw-head{color:var(--deep)}
+.sw-intro{font-size:1.05rem;color:rgba(5,29,46,.6);line-height:1.9;margin-top:2rem;max-width:680px}
+.svc-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:auto;
+  gap:1.5rem;
+  margin-top:5rem;
+}
+.sc{
+  background:var(--deep);color:#fff;
+  padding:3.5rem;position:relative;overflow:hidden;
+  cursor:none;transition:transform .4s ease;
+}
+.sc:hover{transform:translateY(-6px)}
+.sc::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,rgba(255,255,255,.6),rgba(255,255,255,.1));
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+.sc:hover::after{transform:scaleX(1)}
+.sc-1{grid-column:span 7}
+.sc-2{grid-column:span 5}
+.sc-3{grid-column:span 4}
+.sc-4{grid-column:span 4}
+.sc-5{grid-column:span 4}
+.sc-6{grid-column:span 6}
+.sc-7{grid-column:span 6}
+.sc-icon{font-size:1.8rem;margin-bottom:2rem;display:block;opacity:.7}
+.sc-num{
+  position:absolute;top:1.5rem;right:2rem;
+  font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:200;
+  color:rgba(255,255,255,.06);line-height:1;
+}
+.sc-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;margin-bottom:1rem;color:#fff}
+.sc-body{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:1.5rem}
+.sc-arr{
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4);
+  display:flex;align-items:center;gap:.7rem;transition:color .3s;
+}
+.sc:hover .sc-arr{color:rgba(255,255,255,.8)}
+
+/* Jobs */
+.jobs-sec{
+  background:linear-gradient(175deg,var(--deep) 0%,#050e18 100%);
+  padding:10rem 7vw;position:relative;overflow:hidden;
+}
+.jobs-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:7rem}
+.ji-right{font-size:1rem;color:var(--w50);line-height:1.9}
+.job-list{position:relative}
+.job-list::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,var(--w15),transparent);
+}
+.job-item{
+  display:grid;grid-template-columns:120px 1fr 1fr 56px;
+  gap:3rem;align-items:center;
+  padding:3rem 0 3rem 3rem;
+  border-top:1px solid var(--w08);
+  transition:all .4s ease;position:relative;cursor:none;
+}
+.job-item:last-child{border-bottom:1px solid var(--w08)}
+.job-item::before{
+  content:'';position:absolute;inset:0 -7vw;
+  background:var(--w03);opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.job-item:hover::before{opacity:1}
+.job-item:hover{padding-left:5rem}
+.ji-cat{
+  font-family:'Montserrat',sans-serif;font-size:7px;font-weight:700;
+  letter-spacing:.35em;text-transform:uppercase;color:var(--w30);
+}
+.ji-title{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2vw,2.2rem);
+  font-weight:400;color:#fff;
+}
+.ji-desc{font-size:.88rem;color:var(--w40);line-height:1.65}
+.ji-btn{
+  width:52px;height:52px;border:1px solid var(--w20);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  flex-shrink:0;transition:all .35s ease;
+}
+.job-item:hover .ji-btn{background:#fff;color:var(--deep);border-color:#fff}
+
+/* Impact */
+.impact{
+  background:var(--plum);padding:10rem 7vw;position:relative;overflow:hidden;
+}
+.impact::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 50%,rgba(5,29,46,.6) 0%,transparent 50%),
+    radial-gradient(circle at 80% 50%,rgba(5,29,46,.6) 0%,transparent 50%);
+}
+.impact-head{position:relative;z-index:2;text-align:center;margin-bottom:7rem}
+.impact-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--w08);position:relative;z-index:2;
+}
+.imp-item{
+  background:var(--plum);padding:5rem 3rem;text-align:center;
+  position:relative;overflow:hidden;cursor:none;
+  transition:background .5s ease;
+}
+.imp-item:hover{background:rgba(37,18,51,.6)}
+.imp-item::after{
+  content:'';position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:0;height:2px;background:#fff;transition:width .5s ease;
+}
+.imp-item:hover::after{width:50%}
+.imp-item::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.04) 0%,transparent 60%);
+  opacity:0;transition:opacity .5s;
+}
+.imp-item:hover::before{opacity:1}
+.imp-num{
+  font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:200;
+  line-height:1;display:block;margin-bottom:.5rem;
+}
+.imp-sup{font-size:2.5rem;vertical-align:super}
+.imp-label{
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.35em;text-transform:uppercase;color:var(--w35);
+  display:block;margin-bottom:1rem;
+}
+.imp-desc{font-size:.85rem;color:var(--w35);line-height:1.7}
+
+/* Capabilities */
+.caps{background:var(--deep);padding:10rem 7vw;position:relative;overflow:hidden}
+.caps-layout{display:grid;grid-template-columns:400px 1fr;gap:8rem;margin-top:5rem;align-items:start}
+.caps-sticky{position:sticky;top:5rem}
+.caps-sticky-text{
+  font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;
+  color:var(--w70);line-height:1.5;margin-bottom:2rem;
+}
+.caps-sticky-sub{font-size:.9rem;color:var(--w35);line-height:1.85}
+.cap-list{display:flex;flex-direction:column;gap:0}
+.cap-i{
+  border-top:1px solid var(--w08);padding:3rem 0;
+  display:grid;grid-template-columns:1fr 44px;gap:2rem;
+  cursor:none;transition:all .4s ease;
+}
+.cap-i:last-child{border-bottom:1px solid var(--w08)}
+.cap-i:hover{padding-left:2rem}
+.cap-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;
+  margin-bottom:.8rem;
+}
+.cap-desc{font-size:.9rem;color:var(--w45);line-height:1.8;max-width:560px}
+.cap-tog{
+  width:44px;height:44px;border:1px solid var(--w15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;color:var(--w30);flex-shrink:0;align-self:flex-start;
+  transition:all .35s ease;margin-top:.5rem;
+}
+.cap-i:hover .cap-tog{border-color:var(--w50);color:#fff;transform:rotate(45deg)}
+
+/* Candidates */
+.candidates{
+  background:linear-gradient(145deg,#070d14 0%,var(--deep) 60%,#08152c 100%);
+  padding:10rem 7vw;position:relative;overflow:hidden;
+}
+.candidates::before{
+  content:'';position:absolute;top:-400px;right:-400px;
+  width:900px;height:900px;border-radius:50%;
+  border:1px solid var(--w04);
+  animation:ringSpin 50s linear infinite;
+}
+.candidates::after{
+  content:'';position:absolute;top:-300px;right:-300px;
+  width:700px;height:700px;border-radius:50%;
+  border:1px solid var(--w04);
+  animation:ringSpin 35s linear infinite reverse;
+}
+@keyframes ringSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.cand-head{text-align:center;max-width:800px;margin:0 auto 6rem;position:relative;z-index:2}
+.cand-sub{font-size:1.05rem;color:var(--w50);line-height:1.9;margin-top:2rem}
+.cand-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;position:relative;z-index:2;
+}
+.cc{
+  border:1px solid var(--w08);padding:3.5rem;
+  position:relative;overflow:hidden;cursor:none;
+  transition:all .5s ease;background:rgba(5,29,46,.3);
+  backdrop-filter:blur(4px);
+}
+.cc.featured{grid-column:span 3;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.cc:hover{border-color:var(--w30);background:var(--w05);transform:translateY(-5px)}
+.cc-n{
+  position:absolute;top:1rem;right:1.5rem;
+  font-family:'Cormorant Garamond',serif;font-size:6rem;font-weight:200;
+  color:rgba(255,255,255,.04);line-height:1;
+  transition:color .4s;
+}
+.cc:hover .cc-n{color:rgba(255,255,255,.08)}
+.cc-ico{font-size:1.8rem;margin-bottom:1.5rem;display:block}
+.cc-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;margin-bottom:1rem}
+.cc-body{font-size:.9rem;color:var(--w45);line-height:1.85}
+.cc-link{
+  margin-top:2rem;display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--w40);
+  text-decoration:none;cursor:none;transition:color .3s;
+}
+.cc:hover .cc-link{color:#fff}
+
+/* Market */
+.market{background:var(--cream);color:var(--deep);padding:10rem 7vw;position:relative;overflow:hidden}
+.market-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-bottom:6rem}
+.mi-right{font-size:1rem;color:rgba(5,29,46,.6);line-height:1.9;padding-top:5rem}
+.market-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.mkt-c{
+  background:var(--deep);color:#fff;padding:3.5rem;
+  position:relative;overflow:hidden;cursor:none;
+  transition:transform .4s ease;
+}
+.mkt-c:hover{transform:translateY(-8px)}
+.mkt-c::before{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  background:linear-gradient(to bottom,rgba(255,255,255,.5),rgba(255,255,255,.1));
+}
+.mkt-num{
+  font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:200;
+  color:rgba(255,255,255,.06);line-height:1;margin-bottom:2rem;display:block;
+}
+.mkt-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;margin-bottom:1rem}
+.mkt-body{font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:2rem}
+.mkt-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{
+  font-family:'Montserrat',sans-serif;font-size:7px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;padding:.4rem .9rem;
+  border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.35);
+  transition:all .3s;
+}
+.mkt-c:hover .tag{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.6)}
+
+/* Industry */
+.industry{background:var(--deep);padding:10rem 7vw;position:relative;overflow:hidden}
+.ind-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;margin-top:5rem;
+}
+.ind-item{
+  border:1px solid var(--w08);padding:3rem 2.5rem;
+  text-align:center;cursor:none;transition:all .4s ease;
+  position:relative;overflow:hidden;
+  background:var(--w02);
+}
+.ind-item::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,var(--w05) 0%,transparent 70%);
+  opacity:0;transition:opacity .4s;
+}
+.ind-item:hover{border-color:var(--w25);transform:scale(1.03)}
+.ind-item:hover::before{opacity:1}
+.ind-ico{font-size:2.2rem;margin-bottom:1rem;display:block;transition:transform .4s}
+.ind-item:hover .ind-ico{transform:scale(1.2) translateY(-4px)}
+.ind-name{
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--w55);line-height:1.6;
+}
+.ind-item::after{
+  content:attr(data-n);
+  position:absolute;top:.5rem;left:1rem;
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;
+  color:var(--w10);transition:color .4s;
+}
+.ind-item:hover::after{color:var(--w20)}
+
+/* Segments */
+.segments{background:var(--plum);padding:10rem 7vw;position:relative;overflow:hidden}
+.seg-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;background:var(--w08);margin-top:5rem;
+}
+.seg{
+  background:var(--plum);padding:4.5rem 3.5rem;
+  position:relative;overflow:hidden;cursor:none;transition:background .5s ease;
+}
+.seg:hover{background:rgba(30,12,43,.95)}
+.seg-bg{
+  position:absolute;bottom:-2rem;right:-1rem;
+  font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:700;
+  color:rgba(255,255,255,.025);line-height:1;letter-spacing:-.05em;
+  transition:all .5s;pointer-events:none;
+}
+.seg:hover .seg-bg{color:rgba(255,255,255,.05);transform:scale(1.1) rotate(-3deg)}
+.seg-n{
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.35em;color:var(--w20);margin-bottom:1.5rem;display:block;
+}
+.seg-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;margin-bottom:1.2rem}
+.seg-body{font-size:.88rem;color:var(--w45);line-height:1.85}
+.seg::after{
+  content:'';position:absolute;left:0;top:0;width:3px;height:0;
+  background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);
+  transition:height .5s ease;
+}
+.seg:hover::after{height:100%}
+
+/* Approach */
+.approach{background:var(--cream);color:var(--deep);padding:10rem 7vw;position:relative;overflow:hidden}
+.approach::before{content:'';position:absolute;top:20rem;left:5rem;bottom:5rem;width:1px;background:linear-gradient(to bottom,rgba(5,29,46,.1),rgba(5,29,46,.05))}
+.ap-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-bottom:6rem}
+.ap-ir{font-size:1rem;color:rgba(5,29,46,.6);line-height:1.9;padding-top:5rem}
+.ap-steps{display:flex;flex-direction:column;gap:0;padding-left:5rem;position:relative;z-index:2}
+.ap-step{
+  display:grid;grid-template-columns:80px 1fr;gap:3.5rem;
+  padding:4rem 0;border-top:1px solid rgba(5,29,46,.1);
+  cursor:none;transition:all .35s ease;
+}
+.ap-step:last-child{border-bottom:1px solid rgba(5,29,46,.1)}
+.ap-step:hover{padding-left:2rem}
+.ap-circle{
+  width:80px;height:80px;border-radius:50%;
+  border:1px solid rgba(5,29,46,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;
+  color:rgba(5,29,46,.3);flex-shrink:0;
+  background:var(--cream);position:relative;z-index:1;
+  transition:all .4s ease;
+}
+.ap-step:hover .ap-circle{background:var(--deep);color:#fff;border-color:var(--deep);transform:scale(1.1)}
+.ap-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--deep);margin-bottom:.8rem;padding-top:1.5rem}
+.ap-body{font-size:.95rem;color:rgba(5,29,46,.6);line-height:1.9;max-width:620px}
+
+/* Partners */
+.partners{background:var(--deep);padding:10rem 7vw}
+.p-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--w08);margin-top:5rem;
+  border:1px solid var(--w08);
+}
+.p-item{
+  height:110px;background:var(--deep);
+  display:flex;align-items:center;justify-content:center;padding:2rem;
+  cursor:none;transition:background .3s;position:relative;overflow:hidden;
+}
+.p-item::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,var(--w06) 0%,transparent 70%);
+  opacity:0;transition:opacity .3s;
+}
+.p-item:hover{background:var(--w04)}
+.p-item:hover::before{opacity:1}
+.p-item span{
+  font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;
+  color:var(--w30);text-align:center;transition:color .3s;position:relative;z-index:1;
+}
+.p-item:hover span{color:var(--w70)}
+
+/* Insights */
+.insights{
+  background:linear-gradient(180deg,var(--deep) 0%,#040c15 100%);
+  padding:10rem 7vw;position:relative;overflow:hidden;
+}
+.ins-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;margin-top:5rem;
+}
+.ins-card{
+  border:1px solid var(--w08);overflow:hidden;
+  cursor:none;transition:all .5s ease;
+  position:relative;background:rgba(5,29,46,.4);
+}
+.ins-card:hover{border-color:var(--w25);transform:translateY(-10px)}
+.ins-img{
+  height:240px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.ins-img-bg{
+  position:absolute;inset:0;
+  transition:transform .6s ease;
+}
+.ins-card:hover .ins-img-bg{transform:scale(1.05)}
+.ins-img-1{background:linear-gradient(135deg,#0a1e35 0%,var(--plum) 100%)}
+.ins-img-2{background:linear-gradient(135deg,var(--plum) 0%,#0c1824 100%)}
+.ins-img-3{background:linear-gradient(135deg,#060f1c 0%,#1a0c25 100%)}
+.ins-img-4{background:linear-gradient(135deg,#0d1a2b 0%,var(--deep) 100%)}
+.ins-img-5{background:linear-gradient(135deg,#150820 0%,#061220 100%)}
+.ins-img-6{background:linear-gradient(135deg,var(--deep) 0%,#1c0e28 100%)}
+.ins-big-n{
+  font-family:'Cormorant Garamond',serif;font-size:9rem;font-weight:200;
+  color:rgba(255,255,255,.07);position:relative;z-index:1;
+}
+.ins-cat{
+  position:absolute;bottom:1rem;left:1.5rem;z-index:2;
+  font-family:'Montserrat',sans-serif;font-size:7px;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--w40);
+}
+.ins-body{padding:2.5rem}
+.ins-date{
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:600;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--w25);
+  display:block;margin-bottom:1rem;
+}
+.ins-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:400;
+  line-height:1.3;margin-bottom:1rem;color:#fff;
+}
+.ins-exc{font-size:.85rem;color:var(--w35);line-height:1.75;margin-bottom:1.5rem}
+.ins-read{
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--w35);
+  display:flex;align-items:center;gap:.6rem;text-decoration:none;cursor:none;
+  transition:color .3s;
+}
+.ins-card:hover .ins-read{color:#fff}
+
+/* Academy */
+.academy{background:var(--plum);padding:10rem 7vw;position:relative;overflow:hidden}
+.ac-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;margin-top:5rem}
+.ac-visual{position:relative;height:560px}
+.acv-frame{
+  position:absolute;inset:50px 0 0 50px;
+  border:1px solid var(--w15);
+  background:linear-gradient(135deg,var(--deep) 0%,rgba(10,25,42,.9) 100%);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.acv-inner{text-align:center;position:relative;z-index:2}
+.acv-letter{
+  font-family:'Cormorant Garamond',serif;font-size:16rem;font-weight:200;
+  color:rgba(255,255,255,.05);line-height:.9;display:block;
+}
+.acv-label{
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:.5em;text-transform:uppercase;color:var(--w25);
+  display:block;margin-top:1rem;
+}
+.acv-ring{
+  position:absolute;border-radius:50%;border:1px solid var(--w06);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.acv-ring-1{width:280px;height:280px;animation:rs 22s linear infinite}
+.acv-ring-2{width:200px;height:200px;animation:rs 16s linear infinite reverse}
+.acv-ring-3{width:130px;height:130px;animation:rs 10s linear infinite}
+@keyframes rs{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+.acv-dot{
+  position:absolute;width:5px;height:5px;background:#fff;border-radius:50%;
+  top:-2.5px;left:50%;transform:translateX(-50%);opacity:.35;
+}
+.acv-box{
+  position:absolute;top:0;left:0;width:140px;height:140px;
+  border:1px solid var(--w15);background:var(--w06);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;
+  z-index:10;
+}
+.acv-box-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:200}
+.acv-box-l{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--w35);text-align:center}
+.ac-body{font-size:1.05rem;color:var(--w55);line-height:1.9;margin-top:2rem}
+.ac-items{margin-top:3rem;display:flex;flex-direction:column;gap:1.2rem}
+.ac-item{
+  display:flex;gap:1.5rem;align-items:flex-start;padding:1.8rem;
+  border:1px solid var(--w08);transition:all .35s ease;cursor:none;
+}
+.ac-item:hover{border-color:var(--w25);background:var(--w04)}
+.ac-item-ico{font-size:1.2rem;flex-shrink:0;padding-top:.1rem}
+.ac-item-title{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.3rem}
+.ac-item-body{font-size:.85rem;color:var(--w35);line-height:1.65}
+
+/* Why */
+.why{background:var(--cream);color:var(--deep);padding:10rem 7vw;position:relative;overflow:hidden}
+.why-intro{max-width:800px;margin:0 auto;text-align:center;margin-bottom:6rem}
+.why-sub{font-size:1.05rem;color:rgba(5,29,46,.6);line-height:1.9;margin-top:2rem}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(5,29,46,.1)}
+.wg{
+  background:var(--cream);padding:4rem;
+  position:relative;overflow:hidden;cursor:none;
+  transition:all .4s ease;border:none;
+}
+.wg::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--deep);transform:scaleX(0);transform-origin:left;
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+.wg:hover{background:var(--deep);color:#fff}
+.wg:hover::before{transform:scaleX(1)}
+.wg-check{
+  width:40px;height:40px;border:1px solid rgba(5,29,46,.2);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;color:var(--deep);margin-bottom:1.5rem;
+  transition:all .4s;
+}
+.wg:hover .wg-check{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:#fff}
+.wg-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:500;margin-bottom:1rem;transition:color .4s}
+.wg:hover .wg-title{color:#fff}
+.wg-body{font-size:.9rem;color:rgba(5,29,46,.6);line-height:1.85;transition:color .4s}
+.wg:hover .wg-body{color:rgba(255,255,255,.55)}
+
+/* Resources */
+.resources{background:var(--deep);padding:10rem 7vw}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:5rem}
+.rc{
+  border:1px solid var(--w08);padding:3rem 2.5rem;
+  position:relative;overflow:hidden;cursor:none;
+  transition:all .5s ease;background:var(--w02);
+}
+.rc:hover{border-color:var(--w25);background:var(--w05);transform:translateY(-5px)}
+.rc-n{
+  position:absolute;top:.8rem;right:1.2rem;
+  font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:200;
+  color:rgba(255,255,255,.04);line-height:1;transition:color .4s;
+}
+.rc:hover .rc-n{color:rgba(255,255,255,.08)}
+.rc-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;margin-bottom:.8rem;margin-top:2rem}
+.rc-body{font-size:.85rem;color:var(--w35);line-height:1.75;margin-bottom:1.8rem}
+.rc-link{
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--w30);
+  display:flex;align-items:center;gap:.6rem;text-decoration:none;cursor:none;
+  transition:color .3s;
+}
+.rc:hover .rc-link{color:#fff}
+
+/* About */
+.about{background:var(--deep);padding:10rem 7vw;position:relative;overflow:hidden}
+.about::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 80% at 100% 50%,rgba(37,18,51,.4) 0%,transparent 60%);
+}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center;position:relative;z-index:2}
+.ab-visual{position:relative;height:620px}
+.abv-main{
+  position:absolute;inset:60px 0 0 60px;
+  border:1px solid var(--w15);
+  background:linear-gradient(135deg,var(--plum) 0%,var(--deep) 100%);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.abv-quote{
+  font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;
+  font-style:italic;color:var(--w25);text-align:center;padding:3rem;line-height:1.55;
+}
+.abv-accent{
+  position:absolute;top:0;left:0;width:160px;height:160px;
+  border:1px solid var(--w20);background:var(--w06);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;
+  z-index:10;
+}
+.abv-n{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:200}
+.abv-l{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--w30);text-align:center}
+.abv-accent2{
+  position:absolute;bottom:0;right:0;width:120px;height:120px;
+  border:1px solid var(--w10);background:rgba(37,18,51,.5);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.3rem;
+  z-index:10;
+}
+.ab-body{font-size:1rem;color:var(--w55);line-height:1.9;margin-top:2rem}
+.ab-body+.ab-body{margin-top:1.5rem}
+
+/* CTA */
+.cta-mega{
+  background:linear-gradient(135deg,var(--plum) 0%,#180924 50%,var(--plum) 100%);
+  padding:12rem 7vw;text-align:center;position:relative;overflow:hidden;
+}
+.cta-mega::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(5,29,46,.8) 0%,transparent 65%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.cta-inner{position:relative;z-index:2}
+.cta-ey{
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:.45em;text-transform:uppercase;color:var(--w35);
+  display:flex;align-items:center;justify-content:center;gap:1.5rem;
+  margin-bottom:2.5rem;
+}
+.cta-ey::before,.cta-ey::after{content:'';width:60px;height:1px;background:var(--w15)}
+.cta-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,6.5vw,8.5rem);
+  font-weight:300;line-height:.95;letter-spacing:-.02em;
+  margin-bottom:2rem;
+}
+.cta-h em{font-style:italic}
+.cta-p{font-size:1.1rem;color:var(--w50);max-width:620px;margin:0 auto 4rem;line-height:1.85}
+.cta-btns{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+
+/* Contact */
+.contact{background:var(--plum);padding:10rem 7vw;position:relative;overflow:hidden}
+.ct-layout{display:grid;grid-template-columns:1fr 1fr;gap:8rem;margin-top:5rem}
+.ct-item{
+  display:flex;gap:2rem;align-items:flex-start;
+  padding:2.5rem 0;border-bottom:1px solid var(--w08);
+}
+.ct-item:first-child{border-top:1px solid var(--w08)}
+.ct-ico{
+  width:50px;height:50px;border:1px solid var(--w15);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.ct-l{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--w25);margin-bottom:.4rem}
+.ct-v{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#fff}
+.ct-quote{
+  margin-top:3rem;padding:3rem;border:1px solid var(--w08);background:var(--w04);
+}
+.ctq-text{
+  font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;
+  font-style:italic;color:var(--w80);line-height:1.55;
+}
+.ctq-attr{
+  margin-top:1.5rem;font-family:'Montserrat',sans-serif;font-size:8px;
+  font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--w25);
+}
+.fg{margin-bottom:2rem}
+.fl{
+  display:block;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--w30);margin-bottom:.7rem;
+  transition:color .3s;
+}
+.fi,.fs,.ft{
+  width:100%;background:transparent;border:1px solid var(--w15);
+  color:#fff;padding:1.2rem 1.5rem;
+  font-family:'EB Garamond',serif;font-size:1rem;outline:none;
+  transition:border-color .3s;cursor:none;appearance:none;
+}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--w50)}
+.fi:focus~.fl,.fs:focus~.fl,.ft:focus~.fl{color:var(--w70)}
+.ft{resize:none;height:150px}
+.fs option{background:var(--plum);color:#fff}
+.f-submit{
+  display:inline-flex;align-items:center;gap:1rem;
+  padding:1.4rem 3.5rem;background:#fff;color:var(--deep);border:none;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;cursor:none;
+  position:relative;overflow:hidden;transition:all .4s;
+}
+.f-submit::after{
+  content:'';position:absolute;inset:0;background:var(--deep);
+  transform:translateX(-102%);transition:transform .45s cubic-bezier(.16,1,.3,1);
+}
+.f-submit:hover{color:#fff}
+.f-submit:hover::after{transform:translateX(0)}
+.f-submit span{position:relative;z-index:1}
+
+@media(max-width:1200px){
+  .purpose-grid,.about-layout,.ac-layout,.ct-layout{grid-template-columns:1fr;gap:4rem}
+  .caps-layout{grid-template-columns:1fr}
+  .caps-sticky{position:static}
+  .svc-bento{display:grid;grid-template-columns:1fr 1fr}
+  .sc-1,.sc-2,.sc-3,.sc-4,.sc-5,.sc-6,.sc-7{grid-column:span 1}
+  .impact-grid{grid-template-columns:repeat(2,1fr)}
+  .ins-grid{grid-template-columns:1fr 1fr}
+  .res-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .hero{padding:0 5vw 7vh;padding-top:1in}
+  .hero-stats-float{display:none}
+  .svc-bento,.cand-grid,.why-grid,.ind-grid{display:flex;flex-direction:column}
+  .cc.featured{grid-column:span 1;grid-template-columns:1fr}
+  .jobs-intro,.ap-intro,.market-intro,.manifesto-body{grid-template-columns:1fr}
+  .job-item{grid-template-columns:1fr;gap:1rem;padding-left:2rem}
+  .seg-grid,.market-cards{grid-template-columns:1fr}
+  .ins-grid{grid-template-columns:1fr}
+  .res-grid{grid-template-columns:1fr}
+  .impact-grid{grid-template-columns:1fr}
+  .p-grid{grid-template-columns:repeat(2,1fr)}
+  .pad{padding:5rem 5vw}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div id="C"></div>
+<div id="CR"></div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-geo">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+          <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,1)" stroke-width="0.5"/>
+        </pattern>
+        <linearGradient id="gfade" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="white" stop-opacity="1"/>
+          <stop offset="100%" stop-color="white" stop-opacity="0"/>
+        </linearGradient>
+        <mask id="gridmask">
+          <rect width="1440" height="900" fill="url(#gfade)"/>
+        </mask>
+      </defs>
+      <rect width="1440" height="900" fill="url(#grid)" mask="url(#gridmask)"/>
+      <line x1="0" y1="900" x2="900" y2="0" stroke="rgba(255,255,255,0.5)" stroke-width="0.3"/>
+      <line x1="200" y1="900" x2="1100" y2="0" stroke="rgba(255,255,255,0.3)" stroke-width="0.3"/>
+      <line x1="400" y1="900" x2="1300" y2="0" stroke="rgba(255,255,255,0.2)" stroke-width="0.3"/>
+      <circle cx="1200" cy="450" r="300" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+      <circle cx="1200" cy="450" r="200" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.5"/>
+      <circle cx="1200" cy="450" r="100" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+      <rect x="40" y="40" width="30" height="1" fill="rgba(255,255,255,0.4)"/>
+      <rect x="40" y="40" width="1" height="30" fill="rgba(255,255,255,0.4)"/>
+      <rect x="1370" y="40" width="30" height="1" fill="rgba(255,255,255,0.4)"/>
+      <rect x="1399" y="40" width="1" height="30" fill="rgba(255,255,255,0.4)"/>
+      <rect x="40" y="859" width="30" height="1" fill="rgba(255,255,255,0.4)"/>
+      <rect x="40" y="830" width="1" height="30" fill="rgba(255,255,255,0.4)"/>
+    </svg>
+  </div>
+
+  <div class="hero-letter">B</div>
+  <div class="hero-lines"></div>
+  <div class="hero-scan"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span class="hero-badge-text">Dubai's Definitive Real Estate Executive Search Authority</span>
+    </div>
+
+    <h1 class="hero-h1">
+      <span class="h1-line"><span class="h1-line-inner">We Don't</span></span>
+      <span class="h1-line"><span class="h1-line-inner"><em>Fill Positions.</em></span></span>
+      <span class="h1-line"><span class="h1-line-inner"><strong>We Architect</strong></span></span>
+      <span class="h1-line"><span class="h1-line-inner">Futures.</span></span>
+    </h1>
+
+    <p class="hero-sub">Brightstone Property Recruitment stands as Dubai's singular authority in real estate talent acquisition. We seamlessly bridge visionary organisations with exceptional professionals capable of shaping the future of the emirate's property sector - every engagement meticulously curated, executed with precision, discretion, and unwavering strategic foresight.</p>
+
+    <div class="hero-ctas">
+      <a href="#employers" class="btn btn-solid"><span>Engage Our Services</span><span>-&gt;</span></a>
+      <a href="#candidates" class="btn btn-outline"><span>Advance Your Career</span><span>-&gt;</span></a>
+    </div>
+  </div>
+
+  <div class="hero-stats-float">
+    <div class="stat-col">
+      <div class="stat-block">
+        <span class="stat-n" id="sn1">1,200<sup style="font-size:2rem">+</sup></span>
+        <span class="stat-l">Elite Placements</span>
+      </div>
+      <div class="stat-rule"></div>
+      <div class="stat-block">
+        <span class="stat-n">98<sup style="font-size:2rem">%</sup></span>
+        <span class="stat-l">Retention Rate</span>
+      </div>
+      <div class="stat-rule"></div>
+      <div class="stat-block">
+        <span class="stat-n">350<sup style="font-size:2rem">+</sup></span>
+        <span class="stat-l">Client Partners</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Discover</span>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Executive Search</span>
+    <span class="ticker-item">Talent Acquisition</span>
+    <span class="ticker-item">Luxury Real Estate</span>
+    <span class="ticker-item">Developer Roles</span>
+    <span class="ticker-item">Investment Professionals</span>
+    <span class="ticker-item">Brokerage Talent</span>
+    <span class="ticker-item">Construction Leaders</span>
+    <span class="ticker-item">Property Management</span>
+    <span class="ticker-item">Market Intelligence</span>
+    <span class="ticker-item">Career Consultation</span>
+    <span class="ticker-item">Relocation Support</span>
+    <span class="ticker-item">Post-Sales Teams</span>
+    <span class="ticker-item">Wealth Management</span>
+    <span class="ticker-item">PropTech</span>
+    <span class="ticker-item">Corporate Real Estate</span>
+    <span class="ticker-item">Executive Search</span>
+    <span class="ticker-item">Talent Acquisition</span>
+    <span class="ticker-item">Luxury Real Estate</span>
+    <span class="ticker-item">Developer Roles</span>
+    <span class="ticker-item">Investment Professionals</span>
+    <span class="ticker-item">Brokerage Talent</span>
+    <span class="ticker-item">Construction Leaders</span>
+    <span class="ticker-item">Property Management</span>
+    <span class="ticker-item">Market Intelligence</span>
+    <span class="ticker-item">Career Consultation</span>
+    <span class="ticker-item">Relocation Support</span>
+    <span class="ticker-item">Post-Sales Teams</span>
+    <span class="ticker-item">Wealth Management</span>
+    <span class="ticker-item">PropTech</span>
+    <span class="ticker-item">Corporate Real Estate</span>
+  </div>
+</div>
+
+<section class="manifesto">
+  <svg class="arch-svg" viewBox="0 0 800 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="100" y="50" width="600" height="800" stroke="white" stroke-width="0.5"/>
+    <rect x="150" y="100" width="500" height="700" stroke="white" stroke-width="0.3"/>
+    <line x1="100" y1="50" x2="700" y2="850" stroke="white" stroke-width="0.3"/>
+    <line x1="700" y1="50" x2="100" y2="850" stroke="white" stroke-width="0.3"/>
+    <circle cx="400" cy="450" r="200" stroke="white" stroke-width="0.4"/>
+    <circle cx="400" cy="450" r="150" stroke="white" stroke-width="0.3"/>
+    <circle cx="400" cy="450" r="100" stroke="white" stroke-width="0.25"/>
+    <circle cx="400" cy="450" r="50" stroke="white" stroke-width="0.2"/>
+    <line x1="100" y1="450" x2="700" y2="450" stroke="white" stroke-width="0.25"/>
+    <line x1="400" y1="50" x2="400" y2="850" stroke="white" stroke-width="0.25"/>
+    <rect x="395" y="45" width="10" height="10" stroke="white" stroke-width="0.5"/>
+    <rect x="695" y="445" width="10" height="10" stroke="white" stroke-width="0.5"/>
+    <rect x="95" y="445" width="10" height="10" stroke="white" stroke-width="0.5"/>
+    <rect x="395" y="845" width="10" height="10" stroke="white" stroke-width="0.5"/>
+  </svg>
+
+  <div class="manifesto-inner">
+    <div class="reveal">
+      <div class="lbl">Manifesto</div>
+      <div class="manifesto-quote">
+        "We do not merely fill positions - we <span>architect careers</span>, construct <span>elite teams</span>, and provide organisations with <span>enduring strategic advantage</span>."
+      </div>
+    </div>
+    <div class="manifesto-rule">
+      <div class="manifesto-rule-line"></div>
+      <div class="manifesto-rule-diamond"></div>
+      <div class="manifesto-rule-line"></div>
+    </div>
+    <div class="manifesto-body">
+      <p class="manifesto-p reveal">Brightstone Property Recruitment stands as Dubai's definitive authority in real estate talent acquisition and executive recruitment. By combining unparalleled market insight with a finely tuned understanding of human capital, BPR seamlessly bridges ambition and opportunity - connecting visionary organisations with professionals capable of shaping the future of the emirate's extraordinary property sector.</p>
+      <p class="manifesto-p reveal d2">Every engagement is meticulously curated, guided by deep sectoral knowledge cultivated across fifteen years of continuous market practice, and executed with the precision, discretion, and strategic foresight that Dubai's most distinguished organisations have come to expect from a true market authority. We measure our success not by the volume of placements we facilitate, but by the measurable, lasting impact each appointment generates.</p>
+    </div>
+  </div>
+</section>
+
+<section class="purpose pad">
+  <div class="purpose-grid">
+    <div class="purpose-left">
+      <div class="reveal">
+        <div class="lbl">Our Purpose</div>
+        <h2 class="sh">Transforming Standards.<br><em>Advancing</em> Careers.<br><strong>Elevating</strong> Markets.</h2>
+      </div>
+      <p class="purpose-intro reveal d2">BPR exists to redefine the standards of professional recruitment within Dubai's dynamic real estate industry. Three core objectives define every action we take, every relationship we nurture, and every placement we deliver - without compromise, without exception, without variation in the quality we bring to every engagement.</p>
+      <div class="pillar-stack">
+        <div class="pillar reveal d2">
+          <div class="pillar-n">01</div>
+          <div>
+            <div class="pillar-title">Empowering Organisations</div>
+            <p class="pillar-body">By sourcing professionals who not only execute but fundamentally elevate strategy, optimise operational performance, and embed long-term excellence across every function. Every placement is meticulously designed to deliver measurable, tangible outcomes - precisely aligned with the organisation's overarching vision and strategic direction. We source leaders who build legacies, not merely those who fill vacancies, ensuring that each appointment is a catalyst for organisational advancement.</p>
+          </div>
+        </div>
+        <div class="pillar reveal d3">
+          <div class="pillar-n">02</div>
+          <div>
+            <div class="pillar-title">Advancing Careers</div>
+            <p class="pillar-body">Through rigorous strategic guidance, bespoke mentorship, comprehensive relocation support, and personalised career consultation, BPR enables professionals to realise their full potential. We align individual ambition with precise market opportunities, ensuring maximum professional impact, accelerated progression, and sustained career satisfaction. Dubai's extraordinary property market demands exceptional talent - and exceptional talent deserves exceptional guidance from advisors who understand their world intimately.</p>
+          </div>
+        </div>
+        <div class="pillar reveal d4">
+          <div class="pillar-n">03</div>
+          <div>
+            <div class="pillar-title">Elevating the Market</div>
+            <p class="pillar-body">By ensuring the most exceptional talent consistently meets the most compelling opportunity, BPR raises standards across Dubai's primary, secondary, and highly specialised property markets. We enhance professionalism, operational efficiency, and sectoral growth - contributing to the strengthening of the real estate ecosystem and fostering the sustainable development and innovation that will define Dubai's property landscape for the next decade and beyond.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="purpose-right reveal d2">
+      <div class="purpose-visual">
+        <div class="pv-stat">
+          <span class="pv-num" data-target="1200">1,200<sup style="font-size:2.5rem">+</sup></span>
+          <span class="pv-label">Placements Delivered</span>
+          <p class="pv-desc">Across every tier of Dubai's real estate industry, from graduate analysts to chief executive officers of leading property groups - each placement meticulously matched and enduring in its impact.</p>
+        </div>
+        <div class="pv-stat">
+          <span class="pv-num">98<sup style="font-size:2.5rem">%</sup></span>
+          <span class="pv-label">Two-Year Retention</span>
+          <p class="pv-desc">The highest talent retention rate amongst specialist real estate recruiters in the UAE. A reflection not of luck, but of the precision and depth of our matching methodology, refined over fifteen years of continuous market practice.</p>
+        </div>
+        <div class="pv-stat">
+          <span class="pv-num">350<sup style="font-size:2.5rem">+</sup></span>
+          <span class="pv-label">Active Client Partners</span>
+          <p class="pv-desc">Dubai's most prestigious developers, international brokerages, investment institutions, and property technology innovators trust BPR - many exclusively - for their most critical talent decisions at every level of seniority.</p>
+        </div>
+        <div class="pv-stat" style="border-bottom:none">
+          <span class="pv-num">48<sup style="font-size:2.5rem">h</sup></span>
+          <span class="pv-label">Senior Response Guarantee</span>
+          <p class="pv-desc">Our commitment to responsiveness reflects our respect for your time. Every senior enquiry receives a personal response from a specialist BPR consultant within 48 hours - without exception, without delegation to administrative staff.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-section">
+  <div class="mrow">
+    <div class="mcard"><span class="mcard-n">01</span><div class="mcard-title">Primary Market</div><div class="mcard-sub">Off-plan &amp; emerging districts</div></div>
+    <div class="mcard"><span class="mcard-n">02</span><div class="mcard-title">Luxury Residential</div><div class="mcard-sub">Ultra-premium transactions</div></div>
+    <div class="mcard"><span class="mcard-n">03</span><div class="mcard-title">Commercial Assets</div><div class="mcard-sub">Leasing &amp; portfolio management</div></div>
+    <div class="mcard"><span class="mcard-n">04</span><div class="mcard-title">Investment Strategy</div><div class="mcard-sub">Asset &amp; capital management</div></div>
+    <div class="mcard"><span class="mcard-n">05</span><div class="mcard-title">Construction</div><div class="mcard-sub">Project delivery leadership</div></div>
+    <div class="mcard"><span class="mcard-n">06</span><div class="mcard-title">Holiday Homes</div><div class="mcard-sub">Operational specialists</div></div>
+    <div class="mcard"><span class="mcard-n">07</span><div class="mcard-title">Wealth Management</div><div class="mcard-sub">HNW client advisory</div></div>
+    <div class="mcard"><span class="mcard-n">08</span><div class="mcard-title">PropTech</div><div class="mcard-sub">Digital platform leadership</div></div>
+    <div class="mcard"><span class="mcard-n">01</span><div class="mcard-title">Primary Market</div><div class="mcard-sub">Off-plan &amp; emerging districts</div></div>
+    <div class="mcard"><span class="mcard-n">02</span><div class="mcard-title">Luxury Residential</div><div class="mcard-sub">Ultra-premium transactions</div></div>
+    <div class="mcard"><span class="mcard-n">03</span><div class="mcard-title">Commercial Assets</div><div class="mcard-sub">Leasing &amp; portfolio management</div></div>
+    <div class="mcard"><span class="mcard-n">04</span><div class="mcard-title">Investment Strategy</div><div class="mcard-sub">Asset &amp; capital management</div></div>
+    <div class="mcard"><span class="mcard-n">05</span><div class="mcard-title">Construction</div><div class="mcard-sub">Project delivery leadership</div></div>
+    <div class="mcard"><span class="mcard-n">06</span><div class="mcard-title">Holiday Homes</div><div class="mcard-sub">Operational specialists</div></div>
+    <div class="mcard"><span class="mcard-n">07</span><div class="mcard-title">Wealth Management</div><div class="mcard-sub">HNW client advisory</div></div>
+    <div class="mcard"><span class="mcard-n">08</span><div class="mcard-title">PropTech</div><div class="mcard-sub">Digital platform leadership</div></div>
+  </div>
+  <div class="mrow">
+    <div class="mcard"><span class="mcard-n">09</span><div class="mcard-title">Corporate RE</div><div class="mcard-sub">Portfolio &amp; acquisition experts</div></div>
+    <div class="mcard"><span class="mcard-n">10</span><div class="mcard-title">Industrial</div><div class="mcard-sub">Logistics &amp; warehouse leaders</div></div>
+    <div class="mcard"><span class="mcard-n">11</span><div class="mcard-title">Commercial Dev</div><div class="mcard-sub">Large-scale development</div></div>
+    <div class="mcard"><span class="mcard-n">12</span><div class="mcard-title">Brokerage</div><div class="mcard-sub">Elite sales professionals</div></div>
+    <div class="mcard"><span class="mcard-n">13</span><div class="mcard-title">Post-Sales</div><div class="mcard-sub">Client retention teams</div></div>
+    <div class="mcard"><span class="mcard-n">14</span><div class="mcard-title">Exec Search</div><div class="mcard-sub">C-suite &amp; board level</div></div>
+    <div class="mcard"><span class="mcard-n">15</span><div class="mcard-title">Sec. Market</div><div class="mcard-sub">Resale &amp; mature districts</div></div>
+    <div class="mcard"><span class="mcard-n">16</span><div class="mcard-title">Academy</div><div class="mcard-sub">Professional development</div></div>
+    <div class="mcard"><span class="mcard-n">09</span><div class="mcard-title">Corporate RE</div><div class="mcard-sub">Portfolio &amp; acquisition experts</div></div>
+    <div class="mcard"><span class="mcard-n">10</span><div class="mcard-title">Industrial</div><div class="mcard-sub">Logistics &amp; warehouse leaders</div></div>
+    <div class="mcard"><span class="mcard-n">11</span><div class="mcard-title">Commercial Dev</div><div class="mcard-sub">Large-scale development</div></div>
+    <div class="mcard"><span class="mcard-n">12</span><div class="mcard-title">Brokerage</div><div class="mcard-sub">Elite sales professionals</div></div>
+    <div class="mcard"><span class="mcard-n">13</span><div class="mcard-title">Post-Sales</div><div class="mcard-sub">Client retention teams</div></div>
+    <div class="mcard"><span class="mcard-n">14</span><div class="mcard-title">Exec Search</div><div class="mcard-sub">C-suite &amp; board level</div></div>
+    <div class="mcard"><span class="mcard-n">15</span><div class="mcard-title">Sec. Market</div><div class="mcard-sub">Resale &amp; mature districts</div></div>
+    <div class="mcard"><span class="mcard-n">16</span><div class="mcard-title">Academy</div><div class="mcard-sub">Professional development</div></div>
+  </div>
+</div>
+
+<section class="services-white" id="employers">
+  <div class="reveal">
+    <div class="lbl sw-lbl">Our Services</div>
+    <h2 class="sh sw-head">A Complete Arsenal of<br><em>Recruitment Capabilities</em></h2>
+  </div>
+  <p class="sw-intro reveal d2">From board-level executive appointments to the meticulous assembly of high-performance post-sales teams, BPR delivers end-to-end talent solutions that are bespoke, precise, and consistently impactful. Each engagement is structured to generate immediate value whilst building long-term organisational resilience and competitive advantage that endures well beyond the initial appointment.</p>
+
+  <div class="svc-bento reveal d2">
+    <div class="sc sc-1">
+      <span class="sc-num">01</span>
+      <span class="sc-icon">◈</span>
+      <div class="sc-title">Executive Search</div>
+      <p class="sc-body">Discreet, methodical, and strategically informed identification of senior leaders who shape organisational direction, drive institutional performance, and deliver measurable impact from day one. Our executive search methodology combines proprietary market intelligence, rigorous behavioural assessment, and deep sector knowledge to surface leaders that others simply cannot find. We access the most exclusive passive talent networks in Dubai's property market through personal, long-standing relationships cultivated over fifteen years of specialist practice - relationships that provide access to exceptional professionals who are entirely invisible to conventional recruitment channels and database search methodologies.</p>
+      <div class="sc-arr">Explore Capability <span>-&gt;</span></div>
+    </div>
+    <div class="sc sc-2">
+      <span class="sc-num">02</span>
+      <span class="sc-icon">◉</span>
+      <div class="sc-title">Talent Placement</div>
+      <p class="sc-body">Bespoke and precisely calibrated alignment of high-calibre professionals across all levels of seniority, ensuring exceptional cultural resonance and strategic fit whilst maximising contribution from the very outset. We undertake comprehensive analysis of role requirements, team dynamics, leadership culture, and growth trajectory to ensure every placement is transformative - never merely transactional.</p>
+      <div class="sc-arr">Explore Capability <span>-&gt;</span></div>
+    </div>
+    <div class="sc sc-3">
+      <span class="sc-num">03</span>
+      <span class="sc-icon">◇</span>
+      <div class="sc-title">Permanent Hiring</div>
+      <p class="sc-body">Full-cycle, end-to-end recruitment solutions that secure sustainable talent, integrating seamlessly into organisational operations and contributing meaningfully to long-term growth, cohesion, and institutional excellence. Our permanent hiring encompasses market mapping, multi-channel sourcing, comprehensive screening, and thorough reference validation.</p>
+      <div class="sc-arr">Explore <span>-&gt;</span></div>
+    </div>
+    <div class="sc sc-4">
+      <span class="sc-num">04</span>
+      <span class="sc-icon">⬡</span>
+      <div class="sc-title">Specialised Roles</div>
+      <p class="sc-body">Expert recruitment for niche positions across luxury residential, industrial assets, corporate portfolios, and digital property platforms - where expertise is rare and the consequence of a suboptimal appointment is disproportionate. BPR maintains the deepest networks across every specialised segment.</p>
+      <div class="sc-arr">Explore <span>-&gt;</span></div>
+    </div>
+    <div class="sc sc-5">
+      <span class="sc-num">05</span>
+      <span class="sc-icon">◎</span>
+      <div class="sc-title">Post-Sales Teams</div>
+      <p class="sc-body">Assembly and deployment of high-performance post-sales teams ensuring client retention, satisfaction, and repeat business at the highest levels of operational excellence. The sale is merely the beginning - we recruit professionals who excel at nurturing and deepening client relationships through exceptional service delivery.</p>
+      <div class="sc-arr">Explore <span>-&gt;</span></div>
+    </div>
+    <div class="sc sc-6">
+      <span class="sc-num">06</span>
+      <span class="sc-icon">▣</span>
+      <div class="sc-title">Strategic Consultancy</div>
+      <p class="sc-body">Advisory encompassing talent mapping, succession planning, remuneration benchmarking, HR framework design, and organisational structure optimisation. We partner with leadership teams to build recruitment strategies that attract, develop, and retain the most exceptional professionals in Dubai's competitive real estate market - delivering sustainable competitive advantage through human capital excellence and evidence-based decision-making at every level of the organisation.</p>
+      <div class="sc-arr">Explore Capability <span>-&gt;</span></div>
+    </div>
+    <div class="sc sc-7">
+      <span class="sc-num">07</span>
+      <span class="sc-icon">◐</span>
+      <div class="sc-title">Market Intelligence</div>
+      <p class="sc-body">Proprietary market intelligence, competitor salary benchmarking, talent flow analysis, and strategic hiring advisory enabling informed, evidence-based decisions at every stage of your talent planning cycle. Our intelligence is genuinely current, actionable, and exclusively available to BPR clients - drawn from hundreds of active engagements and thousands of candidate interactions conducted continuously across the entire breadth of Dubai's real estate market.</p>
+      <div class="sc-arr">Explore Capability <span>-&gt;</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="jobs-sec" id="jobs">
+  <div class="jobs-intro">
+    <div class="reveal">
+      <div class="lbl">Real Estate Roles</div>
+      <h2 class="sh">Opportunities Across<br><em>Every Specialism</em></h2>
+    </div>
+    <div class="ji-right reveal d2">
+      <p>BPR maintains a constantly evolving portfolio of exceptional real estate opportunities across Dubai's most prestigious organisations. Each position is curated, qualified, and matched with precision - ensuring candidates encounter only roles representing genuine career advancement and meaningful professional contribution. Our active client roster encompasses Dubai's leading developers, international brokerages, investment firms, and specialist property organisations across all segments and seniority levels.</p>
+    </div>
+  </div>
+  <div class="job-list reveal">
+    <div class="job-item">
+      <span class="ji-cat">Development</span>
+      <div class="ji-title">Developer &amp; Project Leadership</div>
+      <p class="ji-desc">Senior directors, development managers, and delivery executives overseeing landmark developments across Dubai's most prestigious master-planned communities from concept through to completed handover - combining strategic insight, regulatory expertise, and operational leadership to deliver developments that define the cityscape.</p>
+      <div class="ji-btn">-&gt;</div>
+    </div>
+    <div class="job-item">
+      <span class="ji-cat">Brokerage</span>
+      <div class="ji-title">Elite Brokerage &amp; Sales Professionals</div>
+      <p class="ji-desc">Senior brokers, team leaders, and sales directors with established client networks, multi-market expertise, and demonstrable track records in high-value residential, commercial, and investment transactions - adept negotiators who navigate complex transactions with poise and cultivate enduring client networks.</p>
+      <div class="ji-btn">-&gt;</div>
+    </div>
+    <div class="job-item">
+      <span class="ji-cat">Investment</span>
+      <div class="ji-title">Investment &amp; Asset Management</div>
+      <p class="ji-desc">Portfolio strategists, asset managers, investment analysts, and fund management professionals with proven analytical capability, acute understanding of market dynamics, and a track record of optimising capital deployment and delivering superior risk-adjusted returns across varied property asset classes throughout the emirate.</p>
+      <div class="ji-btn">-&gt;</div>
+    </div>
+    <div class="job-item">
+      <span class="ji-cat">Construction</span>
+      <div class="ji-title">Construction Leadership &amp; Technical</div>
+      <p class="ji-desc">Project managers, site directors, contracts managers, and quantity surveyors with relevant Gulf experience, ensuring complex developments are delivered safely, efficiently, and to the highest standards of quality and regulatory compliance within Dubai's demanding and fast-moving construction environment.</p>
+      <div class="ji-btn">-&gt;</div>
+    </div>
+    <div class="job-item">
+      <span class="ji-cat">Luxury</span>
+      <div class="ji-title">Luxury &amp; Ultra-Premium Real Estate</div>
+      <p class="ji-desc">Specialists in ultra-high-net-worth client engagement, premium product knowledge, and bespoke lifestyle service delivery across Dubai's most exclusive residential communities - professionals who combine deep market knowledge with the personal gravitas and international network required to serve the world's most discerning buyers.</p>
+      <div class="ji-btn">-&gt;</div>
+    </div>
+    <div class="job-item">
+      <span class="ji-cat">Corporate</span>
+      <div class="ji-title">Corporate &amp; Commercial Real Estate</div>
+      <p class="ji-desc">Corporate real estate professionals, commercial leasing specialists, and portfolio management executives with expertise in occupier advisory, landlord representation, and large-scale commercial asset optimisation across Dubai's central business districts - where financial acuity, legal understanding, and stakeholder management skills are indispensable.</p>
+      <div class="ji-btn">-&gt;</div>
+    </div>
+    <div class="job-item">
+      <span class="ji-cat">PropTech</span>
+      <div class="ji-title">Property Technology &amp; Digital Platforms</div>
+      <p class="ji-desc">Digital transformation leaders, product managers, data analysts, and technology executives driving innovation across property portals, transaction platforms, and data intelligence tools - professionals reshaping how Dubai's real estate market operates, competes, and evolves in the modern era of technology-driven real estate.</p>
+      <div class="ji-btn">-&gt;</div>
+    </div>
+    <div class="job-item">
+      <span class="ji-cat">Management</span>
+      <div class="ji-title">Property Management &amp; Operations</div>
+      <p class="ji-desc">Portfolio managers, facilities directors, tenant relations specialists, and operational leaders ensuring the sustained performance and strategic value enhancement of residential, commercial, and mixed-use assets - professionals who understand both the operational imperatives and long-term value creation objectives of institutional asset owners.</p>
+      <div class="ji-btn">-&gt;</div>
+    </div>
+  </div>
+</section>
+
+<section class="impact">
+  <div class="impact-head">
+    <div class="lbl reveal" style="justify-content:center">Proven Performance</div>
+    <h2 class="sh reveal d2">Our Impact,<br><em>Quantified</em></h2>
+    <p class="reveal d3" style="max-width:600px;margin:2rem auto 0;font-size:1rem;color:var(--w45);line-height:1.85;">Numbers that reflect our unwavering commitment to excellence, precision, and the transformative power of strategic talent placement - validated by every organisation and professional we have had the privilege to serve.</p>
+  </div>
+  <div class="impact-grid reveal d2">
+    <div class="imp-item">
+      <span class="imp-num">1,200<span class="imp-sup">+</span></span>
+      <span class="imp-label">Elite Placements</span>
+      <p class="imp-desc">Across every tier of Dubai's real estate industry, from graduate analysts to chief executives of leading property groups - each meticulously matched and enduring in its organisational impact.</p>
+    </div>
+    <div class="imp-item">
+      <span class="imp-num">98<span class="imp-sup">%</span></span>
+      <span class="imp-label">2-Year Retention Rate</span>
+      <p class="imp-desc">The highest talent retention rate amongst specialist real estate recruiters in the UAE. A direct reflection of the precision and depth of our matching methodology, refined over fifteen years of continuous market practice.</p>
+    </div>
+    <div class="imp-item">
+      <span class="imp-num">350<span class="imp-sup">+</span></span>
+      <span class="imp-label">Active Client Partners</span>
+      <p class="imp-desc">Dubai's most prestigious developers, international brokerages, investment institutions, and property technology companies trust BPR - many exclusively - for their most critical talent decisions at every level of seniority.</p>
+    </div>
+    <div class="imp-item">
+      <span class="imp-num">15<span class="imp-sup">+</span></span>
+      <span class="imp-label">Years Market Authority</span>
+      <p class="imp-desc">Fifteen years of uninterrupted specialist practice in Dubai's real estate market - building the networks, knowledge, and judgment that enable us to deliver outcomes no newer entrant can replicate or approach.</p>
+    </div>
+  </div>
+</section>
+
+<section class="caps">
+  <div class="lbl reveal">Our Capabilities</div>
+  <div class="caps-layout">
+    <div class="caps-sticky reveal">
+      <h2 class="sh">Everything Required<br>to <em>Build</em> Your<br>Team</h2>
+      <p class="caps-sticky-text" style="margin-top:2rem;">A comprehensive and seamlessly integrated suite of recruitment capabilities, each designed to deliver precision outcomes at every stage of the talent acquisition and management lifecycle.</p>
+      <p class="caps-sticky-sub" style="margin-top:1.5rem;">From initial market mapping through to structured onboarding and long-term retention planning, BPR operates as a full-service human capital partner - not merely a sourcing function. Our capabilities are delivered by practitioners with deep personal experience in Dubai's real estate industry, ensuring every element of our service is informed by genuine market knowledge rather than generic recruitment theory.</p>
+    </div>
+    <div class="cap-list reveal d2">
+      <div class="cap-i">
+        <div>
+          <div class="cap-title">Hiring &amp; Recruitment</div>
+          <p class="cap-desc">Comprehensive, multi-channel talent sourcing and strategic placement across every professional level and functional discipline within Dubai's property industry. We deploy an integrated combination of proprietary networks, digital sourcing, competitor intelligence, and referral programmes to access the full spectrum of available talent - including the critical passive market that conventional recruitment cannot reach, and where the most exceptional professionals invariably reside.</p>
+        </div>
+        <div class="cap-tog">+</div>
+      </div>
+      <div class="cap-i">
+        <div>
+          <div class="cap-title">Executive Placement</div>
+          <p class="cap-desc">The discreet, confidential, and deeply strategic identification and securing of leaders whose appointment will materially alter the trajectory of your organisation. We access the most exclusive passive talent networks through established personal relationships, ensuring our executive search capability consistently surfaces candidates that no other recruiter can identify or engage. Every executive search is personally led by a senior BPR partner with direct sector experience.</p>
+        </div>
+        <div class="cap-tog">+</div>
+      </div>
+      <div class="cap-i">
+        <div>
+          <div class="cap-title">Screening &amp; Selection</div>
+          <p class="cap-desc">Rigorous, multi-stage evaluation frameworks encompassing competency-based interviewing, psychometric profiling, portfolio review, market intelligence validation, motivation analysis, and thorough cultural alignment assessment. Our screening process is designed to protect your organisation's most valuable commodity - the time and attention of senior leadership - whilst materially improving appointment quality and long-term outcome consistency.</p>
+        </div>
+        <div class="cap-tog">+</div>
+      </div>
+      <div class="cap-i">
+        <div>
+          <div class="cap-title">Candidate Engagement</div>
+          <p class="cap-desc">Sustained and meaningful alignment of exceptional professionals within our exclusive talent community, ensuring their continued readiness, motivation, and availability for strategically significant opportunities. We invest in long-term relationships with Dubai's most talented real estate professionals - understanding their ambitions, tracking their development, and engaging them with precision when the right opportunity emerges within our client portfolio.</p>
+        </div>
+        <div class="cap-tog">+</div>
+      </div>
+      <div class="cap-i">
+        <div>
+          <div class="cap-title">Onboarding &amp; Integration</div>
+          <p class="cap-desc">Structured, evidence-based induction programmes designed to optimise immediate productivity, accelerate cultural integration, and dramatically improve long-term talent retention outcomes. We support both the hiring organisation and the appointed candidate throughout the critical first hundred days - providing structured check-ins, performance coaching, cultural navigation guidance, and proactive intervention where required to ensure every placement achieves its full potential and sustainable value.</p>
+        </div>
+        <div class="cap-tog">+</div>
+      </div>
+      <div class="cap-i">
+        <div>
+          <div class="cap-title">Succession Planning</div>
+          <p class="cap-desc">Strategic advisory for the identification, development, and readiness of internal talent pipelines and external successor candidates - ensuring organisational continuity, leadership resilience, and strategic momentum even through periods of significant leadership transition. BPR works confidentially with boards and senior leadership teams to ensure that succession risk is proactively managed and never becomes an organisational vulnerability.</p>
+        </div>
+        <div class="cap-tog">+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="candidates" id="candidates">
+  <div class="cand-head">
+    <div class="lbl reveal" style="justify-content:center">For Candidates</div>
+    <h2 class="sh reveal d2">Your Career,<br><em>Strategically Elevated</em></h2>
+    <p class="cand-sub reveal d3">BPR provides far more than job placement. We are the strategic career partner that Dubai's most exceptional real estate professionals rely upon to navigate the market with intelligence, confidence, and precision. Every interaction is private, personalised, and entirely focused on your long-term professional success and career satisfaction.</p>
+  </div>
+  <div class="cand-grid">
+    <div class="cc featured reveal">
+      <div>
+        <span class="cc-n">01</span>
+        <span class="cc-ico">◈</span>
+        <div class="cc-title">Register Your Profile</div>
+        <p class="cc-body">Access an exclusive portfolio of high-value career opportunities precisely tailored to your expertise, seniority, and professional ambitions. BPR ensures every candidate in our talent community is positioned with intention - connected to roles representing genuine advancement rather than mere lateral movement. Your profile is treated with absolute confidentiality and engaged with active strategic intent by our senior consultants, who maintain personal relationships with the individuals they represent rather than delegating to junior staff or automated systems.</p>
+        <a href="#" class="cc-link">Register Now -&gt;</a>
+      </div>
+      <div>
+        <div style="border:1px solid var(--w10);padding:3rem;height:100%;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:200;color:rgba(255,255,255,.05);position:absolute;top:1rem;right:2rem;">I</div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--w25);margin-bottom:1rem;">Why Register with BPR</div>
+            <p style="font-size:.9rem;color:var(--w45);line-height:1.85;">Our talent community members receive priority access to roles before they are advertised, personalised market intelligence briefings, compensation benchmarking specific to their level and sector, and direct representation to our network of 350+ client organisations across Dubai's real estate industry.</p>
+          </div>
+          <div style="margin-top:2rem;display:flex;flex-direction:column;gap:.8rem;">
+            <div style="display:flex;gap:1rem;align-items:center;font-size:.85rem;color:var(--w40);">✓ <span>Exclusive pre-market opportunities</span></div>
+            <div style="display:flex;gap:1rem;align-items:center;font-size:.85rem;color:var(--w40);">✓ <span>Personal senior consultant representation</span></div>
+            <div style="display:flex;gap:1rem;align-items:center;font-size:.85rem;color:var(--w40);">✓ <span>Absolute confidentiality guaranteed</span></div>
+            <div style="display:flex;gap:1rem;align-items:center;font-size:.85rem;color:var(--w40);">✓ <span>Market intelligence &amp; salary benchmarking</span></div>
+            <div style="display:flex;gap:1rem;align-items:center;font-size:.85rem;color:var(--w40);">✓ <span>Strategic career consultation included</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cc reveal d2">
+      <span class="cc-n">02</span>
+      <span class="cc-ico">◉</span>
+      <div class="cc-title">Career Placement</div>
+      <p class="cc-body">Bespoke role matching ensuring exceptional alignment between your capabilities, career aspirations, and the specific requirements of target organisations. Our placement process is transformative - never transactional. We invest significant time in understanding your motivations, career trajectory, personal circumstances, and the kind of organisation and culture in which you will genuinely thrive and make your most meaningful contribution. The result is placements that endure and careers that flourish beyond the initial appointment.</p>
+      <a href="#" class="cc-link">Learn More -&gt;</a>
+    </div>
+    <div class="cc reveal d3">
+      <span class="cc-n">03</span>
+      <span class="cc-ico">✦</span>
+      <div class="cc-title">Relocation Support</div>
+      <p class="cc-body">Comprehensive, end-to-end relocation assistance enabling seamless transitions for international professionals relocating to Dubai's extraordinary real estate market. Our relocation support encompasses visa and employment permit guidance, residential property search and community orientation, banking and financial services introductions, schooling recommendations, and cultural navigation advisory - ensuring your transition to Dubai is confident, efficient, and entirely positive from the very first day of your new appointment.</p>
+      <a href="#" class="cc-link">Discover Support -&gt;</a>
+    </div>
+    <div class="cc reveal d4">
+      <span class="cc-n">04</span>
+      <span class="cc-ico">◎</span>
+      <div class="cc-title">Career Consultation</div>
+      <p class="cc-body">Authoritative market intelligence, precise compensation benchmarking, professional development planning, and strategic career advisory - all delivered by consultants with direct personal experience in Dubai's real estate industry. Whether you are considering your first move to Dubai, seeking senior progression, or exploring a strategic pivot into an adjacent discipline, our consultation provides the clarity and confidence required to make the optimal career decision with genuine market intelligence at your disposal.</p>
+      <a href="#" class="cc-link">Book Consultation -&gt;</a>
+    </div>
+    <div class="cc reveal d5">
+      <span class="cc-n">05</span>
+      <span class="cc-ico">◍</span>
+      <div class="cc-title">Opportunity Matching</div>
+      <p class="cc-body">Data-driven, intelligence-informed strategic alignment ensuring candidates are connected to roles that genuinely optimise their skills, motivation, experience, and long-term potential for sustained career satisfaction and professional fulfilment. Our opportunity matching process draws on proprietary market data, compensation benchmarks, cultural assessment, and deep organisational knowledge to create connections between exceptional professionals and the opportunities where they will achieve their greatest professional impact.</p>
+      <a href="#" class="cc-link">Explore Opportunities -&gt;</a>
+    </div>
+  </div>
+</section>
+
+<section class="market">
+  <div class="market-intro">
+    <div class="reveal">
+      <div class="lbl sw-lbl">Market Coverage</div>
+      <h2 class="sh sw-head">Deep Expertise Across<br><em>Every Market Segment</em></h2>
+    </div>
+    <div class="mi-right reveal d2">
+      <p>BPR's market intelligence spans the entirety of Dubai's property ecosystem - from off-plan primary launches in emerging master communities to the most established secondary market neighbourhoods, from ultra-luxury residential to large-scale industrial and commercial asset management. Our coverage is comprehensive, our insights are proprietary, and our networks are genuinely unrivalled by any other specialist real estate recruiter operating in the UAE market today.</p>
+    </div>
+  </div>
+  <div class="market-cards">
+    <div class="mkt-c reveal">
+      <span class="mkt-num">01</span>
+      <div class="mkt-title">Primary Market</div>
+      <p class="mkt-body">Comprehensive intelligence across Dubai's off-plan and new development landscape. Our professionals are adept in project launch strategy, investor relations, pricing intelligence, development marketing, and the full spectrum of buyer acquisition across both domestic and international markets - understanding the nuances of developer sales and investment proposition articulation at the highest levels.</p>
+      <div class="mkt-tags"><span class="tag">Off-Plan</span><span class="tag">Developer Sales</span><span class="tag">Investment</span><span class="tag">Launch Strategy</span></div>
+    </div>
+    <div class="mkt-c reveal d2">
+      <span class="mkt-num">02</span>
+      <div class="mkt-title">Secondary Market</div>
+      <p class="mkt-body">Resale properties, mature established districts, and fully developed communities represent some of Dubai's most complex transactional environments. Our secondary market professionals excel in negotiation, comprehensive market valuation, client relationship management, and strategic positioning - consistently delivering successful outcomes in competitive, multi-party transaction scenarios where nuance and experience are indispensable competitive advantages.</p>
+      <div class="mkt-tags"><span class="tag">Resale</span><span class="tag">Negotiation</span><span class="tag">Valuation</span><span class="tag">Portfolio Advisory</span></div>
+    </div>
+    <div class="mkt-c reveal d3">
+      <span class="mkt-num">03</span>
+      <div class="mkt-title">Property Management</div>
+      <p class="mkt-body">The sustained operational performance and value enhancement of residential, commercial, and mixed-use assets demands professionals with exceptional breadth - from technical facilities management and compliance to tenant relationship management and strategic asset planning. BPR recruits property management professionals who understand both the operational imperatives and the long-term value creation objectives of institutional asset owners and sophisticated private investors.</p>
+      <div class="mkt-tags"><span class="tag">Portfolio Management</span><span class="tag">Tenant Relations</span><span class="tag">FM</span><span class="tag">Asset Optimisation</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="industry">
+  <div class="reveal" style="text-align:center;margin-bottom:5rem">
+    <div class="lbl" style="justify-content:center">Industry Coverage</div>
+    <h2 class="sh">Across <em>Every</em> Sector<br>of Dubai's Property Landscape</h2>
+    <p style="max-width:600px;margin:2rem auto 0;font-size:1rem;color:var(--w45);line-height:1.8;">Our placement expertise spans the complete range of property industry verticals - from traditional residential brokerage to cutting-edge property technology platforms and everything in between. No specialism is beyond our reach; no requirement too niche for our networks.</p>
+  </div>
+  <div class="ind-grid reveal d2">
+    <div class="ind-item" data-n="01"><span class="ind-ico">🏢</span><div class="ind-name">Real Estate Brokerages</div></div>
+    <div class="ind-item" data-n="02"><span class="ind-ico">🏗️</span><div class="ind-name">Property Developers</div></div>
+    <div class="ind-item" data-n="03"><span class="ind-ico">📈</span><div class="ind-name">Real Estate Investment</div></div>
+    <div class="ind-item" data-n="04"><span class="ind-ico">⚙️</span><div class="ind-name">Construction Firms</div></div>
+    <div class="ind-item" data-n="05"><span class="ind-ico">💎</span><div class="ind-name">Luxury Real Estate</div></div>
+    <div class="ind-item" data-n="06"><span class="ind-ico">🏖️</span><div class="ind-name">Holiday Homes</div></div>
+    <div class="ind-item" data-n="07"><span class="ind-ico">💻</span><div class="ind-name">Property Platforms</div></div>
+    <div class="ind-item" data-n="08"><span class="ind-ico">💰</span><div class="ind-name">Wealth Management</div></div>
+    <div class="ind-item" data-n="09"><span class="ind-ico">🏛️</span><div class="ind-name">Corporate Real Estate</div></div>
+    <div class="ind-item" data-n="10"><span class="ind-ico">🏪</span><div class="ind-name">Commercial Agencies</div></div>
+    <div class="ind-item" data-n="11"><span class="ind-ico">🏭</span><div class="ind-name">Industrial Warehouses</div></div>
+    <div class="ind-item" data-n="12"><span class="ind-ico">🌆</span><div class="ind-name">Commercial Developers</div></div>
+  </div>
+</section>
+
+<section class="segments">
+  <div class="reveal" style="text-align:center;position:relative;z-index:2;margin-bottom:5rem">
+    <div class="lbl" style="justify-content:center">Specialised Segments</div>
+    <h2 class="sh">Rare Expertise for<br><em>Extraordinary</em> Requirements</h2>
+    <p style="max-width:600px;margin:2rem auto 0;font-size:1rem;color:var(--w45);line-height:1.8;">Certain roles demand qualifications, experience, and personal attributes so specific that conventional methods are entirely insufficient. These are BPR's most valued engagements - where our depth of market knowledge delivers the most profound competitive advantage.</p>
+  </div>
+  <div class="seg-grid reveal d2">
+    <div class="seg"><span class="seg-bg">HH</span><span class="seg-n">01 / SEGMENT</span><div class="seg-title">Holiday Homes</div><p class="seg-body">Operational directors, marketing specialists, and guest experience managers who drive profitable, seamlessly managed short-let portfolios. BPR identifies professionals who combine operational rigour with the hospitality sensibility required to deliver consistently exceptional guest experiences and maximise owner returns across Dubai's dynamic and rapidly expanding holiday homes market - one of the emirate's fastest-growing real estate sub-sectors.</p></div>
+    <div class="seg"><span class="seg-bg">LX</span><span class="seg-n">02 / SEGMENT</span><div class="seg-title">Luxury Real Estate</div><p class="seg-body">Professionals with the rare combination of ultra-premium market knowledge, personal gravitas, international client network, and the ability to articulate extraordinary lifestyle propositions to the world's most discerning buyers. BPR's luxury candidates have transacted in the most prestigious residential markets globally and bring an unparalleled standard of client service - discretion, elegance, and results - to every engagement with ultra-high-net-worth individuals across the emirate's most exclusive communities.</p></div>
+    <div class="seg"><span class="seg-bg">PT</span><span class="seg-n">03 / SEGMENT</span><div class="seg-title">Property Platforms</div><p class="seg-body">Technology leaders, product strategists, and data science professionals driving the digital transformation of Dubai's real estate industry. From leading property portals to emerging transaction automation platforms, BPR recruits the analytical, entrepreneurial, and technically sophisticated professionals reshaping how real estate is discovered, transacted, and managed in the modern era of AI-assisted and data-driven property markets.</p></div>
+    <div class="seg"><span class="seg-bg">CF</span><span class="seg-n">04 / SEGMENT</span><div class="seg-title">Construction Firms</div><p class="seg-body">Project leaders, commercial managers, and operational executives who deliver complex construction programmes on time, within budget, and to the exceptional standards demanded by Dubai's most discerning developers and end users. BPR's construction talent understands the unique regulatory environment, supply chain dynamics, and quality expectations of the UAE construction market at every level of programme complexity and technological sophistication.</p></div>
+    <div class="seg"><span class="seg-bg">WM</span><span class="seg-n">05 / SEGMENT</span><div class="seg-title">Wealth Management</div><p class="seg-body">Discreet and highly qualified advisors managing high-net-worth and ultra-high-net-worth property portfolios with the strategic foresight, market intelligence, and personal discretion required at the very highest levels of private wealth management. BPR recruits professionals who operate at the intersection of real estate, private banking, and family office advisory - a rarefied skill set of immense and growing value to Dubai's rapidly expanding HNW community.</p></div>
+    <div class="seg"><span class="seg-bg">CR</span><span class="seg-n">06 / SEGMENT</span><div class="seg-title">Corporate Real Estate</div><p class="seg-body">Experienced corporate real estate professionals managing institutional portfolios, strategic acquisitions, occupier advisory mandates, and large-scale optimisation programmes for Dubai's most sophisticated corporate occupiers and institutional property owners - requiring financial acuity, legal understanding, and stakeholder management skills to operate effectively in complex corporate environments where the consequences of poor appointments are disproportionate.</p></div>
+    <div class="seg"><span class="seg-bg">CA</span><span class="seg-n">07 / SEGMENT</span><div class="seg-title">Commercial Agencies</div><p class="seg-body">Accomplished commercial leasing professionals, investment sales specialists, and tenant advisory experts delivering consistent commercial performance for Dubai's leading agency businesses. Our commercial candidates combine deep market knowledge, established landlord and occupier relationships, and sophisticated transaction management capability to deliver exceptional results across offices, retail, and mixed-use commercial assets throughout the emirate's dynamic commercial districts.</p></div>
+    <div class="seg"><span class="seg-bg">IW</span><span class="seg-n">08 / SEGMENT</span><div class="seg-title">Industrial &amp; Logistics</div><p class="seg-body">Operational and management talent ensuring the efficient, strategic, and commercially optimised utilisation of industrial and logistics assets across Dubai's rapidly expanding warehousing and distribution sectors. As e-commerce and supply chain demand drives unprecedented growth in industrial real estate, BPR provides specialist recruitment capability to attract and appoint the professionals leading these strategically critical assets into an increasingly sophisticated and competitive future.</p></div>
+    <div class="seg"><span class="seg-bg">CD</span><span class="seg-n">09 / SEGMENT</span><div class="seg-title">Commercial Developers</div><p class="seg-body">Executive leadership and senior operational talent for large-scale commercial development organisations - encompassing development directors, leasing directors, and asset management teams who combine strategic planning excellence with the operational rigour required to deliver and manage Dubai's most ambitious commercial real estate projects from inception through to stabilised long-term asset performance and institutional-grade investment returns.</p></div>
+  </div>
+</section>
+
+<section class="approach">
+  <div class="ap-intro">
+    <div class="reveal">
+      <div class="lbl sw-lbl">Our Methodology</div>
+      <h2 class="sh sw-head">A Structured Path<br>to <em>Transformative</em><br>Placement</h2>
+    </div>
+    <div class="ap-ir reveal d2">
+      <p>BPR's proprietary recruitment methodology has been refined over fifteen years of specialist practice in Dubai's real estate market. It is structured, adaptive, and insight-driven - combining rigorous assessment with nuanced human judgement to deliver placements that generate immediate impact and enduring organisational value at every level of seniority and across every sector specialism. It is a methodology born of experience, validated by outcomes, and continuously refined by the feedback of the organisations and professionals we serve.</p>
+    </div>
+  </div>
+  <div class="ap-steps reveal d2">
+    <div class="ap-step">
+      <div class="ap-circle">01</div>
+      <div class="ap-content">
+        <div class="ap-title">Strategic Briefing &amp; Market Intelligence</div>
+        <p class="ap-body">Every engagement begins with a comprehensive strategic briefing - an in-depth, senior-led discussion encompassing role specification, organisational culture, team dynamics, performance expectations, compensation positioning, and the broader strategic context. This is supplemented by a thorough proprietary analysis of current market availability, competitor talent mapping, and compensation benchmarking, resulting in a precise and actionable recruitment brief that ensures every subsequent stage is strategically aligned to your specific requirements and informed by genuine, current market intelligence.</p>
+      </div>
+    </div>
+    <div class="ap-step">
+      <div class="ap-circle">02</div>
+      <div class="ap-content">
+        <div class="ap-title">Talent Identification &amp; Network Activation</div>
+        <p class="ap-body">BPR activates its proprietary talent networks - encompassing thousands of pre-qualified real estate professionals across every sector, seniority level, and functional discipline in Dubai's property market. Critically, we pursue the passive candidate market with the same vigour as active job seekers, identifying and personally approaching exceptional professionals who are not actively seeking new roles but may represent the ideal appointment. Our personal relationships across Dubai's real estate community provide access to talent that is entirely invisible to conventional recruitment methodologies and digital sourcing approaches.</p>
+      </div>
+    </div>
+    <div class="ap-step">
+      <div class="ap-circle">03</div>
+      <div class="ap-content">
+        <div class="ap-title">Rigorous Screening &amp; Assessment</div>
+        <p class="ap-body">Each candidate identified for consideration is subjected to a rigorous, multi-stage assessment process evaluating competency, experience, motivation, cultural alignment, and long-term potential. This encompasses structured competency-based interviews, portfolio and track record validation, technical knowledge assessment, psychometric profiling, and thorough motivation analysis. Our screening process protects your organisation's most valuable resource - the time and attention of senior leadership - by ensuring that only truly exceptional, specifically relevant candidates are presented for your consideration.</p>
+      </div>
+    </div>
+    <div class="ap-step">
+      <div class="ap-circle">04</div>
+      <div class="ap-content">
+        <div class="ap-title">Candidate Presentation &amp; Interview Management</div>
+        <p class="ap-body">Selected candidates are presented via comprehensive, professionally structured written profiles accompanied by a detailed briefing from your BPR consultant - providing a thorough assessment of each candidate's background, demonstrated competencies, motivation, cultural alignment, and our rationale for recommendation. Throughout the interview process, BPR provides structured interview guidance, manages scheduling and logistics, and ensures that both the hiring organisation and the candidate receive the preparation and support required to conduct a productive and revealing assessment of mutual suitability and alignment.</p>
+      </div>
+    </div>
+    <div class="ap-step">
+      <div class="ap-circle">05</div>
+      <div class="ap-content">
+        <div class="ap-title">Offer Management &amp; Negotiation</div>
+        <p class="ap-body">BPR manages the offer process with precision, expertise, and sensitivity - ensuring compensation packages are structured competitively, all elements of the employment proposition are clearly communicated, and any concerns from either party are resolved swiftly. Our deep understanding of Dubai's real estate compensation landscape enables us to provide authoritative guidance, ensuring offers are positioned correctly from the outset and that the probability of acceptance is maximised. We manage counter-offer scenarios with experience and care, protecting the integrity of the appointment process throughout.</p>
+      </div>
+    </div>
+    <div class="ap-step">
+      <div class="ap-circle">06</div>
+      <div class="ap-content">
+        <div class="ap-title">Onboarding, Integration &amp; Long-Term Partnership</div>
+        <p class="ap-body">Our commitment does not conclude at the point of acceptance. BPR provides a structured onboarding partnership encompassing regular check-in conversations with both the hiring manager and the new appointment throughout the critical first hundred days. We provide guidance on cultural integration, performance expectation alignment, and proactive intervention where required to ensure the placement achieves its full potential. This sustained partnership approach is reflected in our 98% two-year retention rate - the highest amongst specialist real estate recruiters in the UAE - and underpins the long-term client relationships that define our practice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners">
+  <div class="reveal" style="text-align:center">
+    <div class="lbl" style="justify-content:center">Trusted By</div>
+    <h2 class="sh">Dubai's Most Distinguished<br>Real Estate <em>Organisations</em></h2>
+    <p style="max-width:600px;margin:2rem auto 0;font-size:1rem;color:var(--w45);line-height:1.8;">BPR serves as the exclusive or preferred recruitment partner for some of the most prestigious names in Dubai's real estate industry - a position earned through consistent delivery, absolute discretion, and unwavering commitment to quality at every level of engagement.</p>
+  </div>
+  <div class="p-grid reveal d2">
+    <div class="p-item"><span>Leading Developer Group</span></div>
+    <div class="p-item"><span>International Brokerage</span></div>
+    <div class="p-item"><span>Investment Institution</span></div>
+    <div class="p-item"><span>Luxury Developer</span></div>
+    <div class="p-item"><span>Major Construction Group</span></div>
+    <div class="p-item"><span>Commercial Agency</span></div>
+    <div class="p-item"><span>PropTech Platform</span></div>
+    <div class="p-item"><span>Wealth Management Firm</span></div>
+    <div class="p-item"><span>Corporate Portfolio Manager</span></div>
+    <div class="p-item"><span>Logistics Operator</span></div>
+    <div class="p-item"><span>Holiday Homes Group</span></div>
+    <div class="p-item"><span>Specialist Developer</span></div>
+  </div>
+</section>
+
+<section class="insights">
+  <div class="reveal">
+    <div class="lbl">Insights &amp; Research</div>
+    <h2 class="sh">Thought Leadership from<br><em>Dubai's Foremost</em> Recruiters</h2>
+    <p style="max-width:650px;margin:2rem 0 0;font-size:1.05rem;color:var(--w45);line-height:1.85;">BPR publishes authoritative market intelligence, strategic recruitment insights, and forward-looking analysis equipping organisations and professionals with the knowledge required to make confident, informed decisions in Dubai's dynamic property market.</p>
+  </div>
+  <div class="ins-grid reveal d2">
+    <div class="ins-card">
+      <div class="ins-img ins-img-1"><div class="ins-img-bg ins-img-1"></div><div class="ins-big-n">01</div><span class="ins-cat">Market Intelligence</span></div>
+      <div class="ins-body"><span class="ins-date">March 2025</span><div class="ins-title">Dubai Real Estate Talent Market: 2025 Outlook and Strategic Implications for Hiring Organisations</div><p class="ins-exc">An authoritative analysis of salary movements, talent availability, and recruitment strategy for Dubai's real estate sector - essential reading for every hiring decision-maker in the emirate's property industry.</p><a href="#" class="ins-read">Read Report -&gt;</a></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-img ins-img-2"><div class="ins-img-bg ins-img-2"></div><div class="ins-big-n">02</div><span class="ins-cat">Executive Search</span></div>
+      <div class="ins-body"><span class="ins-date">February 2025</span><div class="ins-title">The War for Senior Talent in Dubai: Why Traditional Recruitment Is No Longer Sufficient</div><p class="ins-exc">Competition for Dubai's most exceptional real estate professionals has never been more intense. This report examines why organisations relying on conventional approaches consistently lose the most critical appointments.</p><a href="#" class="ins-read">Read Report -&gt;</a></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-img ins-img-3"><div class="ins-img-bg ins-img-3"></div><div class="ins-big-n">03</div><span class="ins-cat">Career Intelligence</span></div>
+      <div class="ins-body"><span class="ins-date">January 2025</span><div class="ins-title">Navigating Dubai's Real Estate Career Landscape: A Strategic Guide for Ambitious Professionals</div><p class="ins-exc">A comprehensive guide for real estate professionals at every career stage - examining market entry strategy, progression pathways, and the attributes that Dubai's leading organisations prize most highly.</p><a href="#" class="ins-read">Read Report -&gt;</a></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-img ins-img-4"><div class="ins-img-bg ins-img-4"></div><div class="ins-big-n">04</div><span class="ins-cat">Sector Analysis</span></div>
+      <div class="ins-body"><span class="ins-date">December 2024</span><div class="ins-title">Luxury Real Estate Recruitment: The Distinct Competencies That Separate Exceptional from Average</div><p class="ins-exc">Ultra-luxury real estate requires a fundamentally different type of professional. This analysis identifies the specific competencies and experience profiles that distinguish consistently exceptional luxury real estate performers.</p><a href="#" class="ins-read">Read Report -&gt;</a></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-img ins-img-5"><div class="ins-img-bg ins-img-5"></div><div class="ins-big-n">05</div><span class="ins-cat">PropTech</span></div>
+      <div class="ins-body"><span class="ins-date">November 2024</span><div class="ins-title">PropTech Talent in Dubai: Recruiting the Professionals Driving Real Estate's Digital Transformation</div><p class="ins-exc">As technology reshapes every aspect of the property transaction lifecycle, demand for digitally sophisticated real estate professionals has grown exponentially. This report examines where to find them and how to attract them.</p><a href="#" class="ins-read">Read Report -&gt;</a></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-img ins-img-6"><div class="ins-img-bg ins-img-6"></div><div class="ins-big-n">06</div><span class="ins-cat">Compensation</span></div>
+      <div class="ins-body"><span class="ins-date">October 2024</span><div class="ins-title">Dubai Real Estate Compensation Report 2024-2025: Benchmarks, Trends, and Strategic Implications</div><p class="ins-exc">Our definitive annual compensation benchmarking report - covering salary ranges, commission structures, and total remuneration expectations across every functional discipline and seniority level in Dubai's real estate industry.</p><a href="#" class="ins-read">Read Report -&gt;</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="academy">
+  <div class="reveal">
+    <div class="lbl">BPR Academy</div>
+    <h2 class="sh">Cultivating Tomorrow's<br><em>Market Leaders</em></h2>
+  </div>
+  <div class="ac-layout">
+    <div class="ac-visual reveal">
+      <div class="acv-frame">
+        <div class="acv-ring acv-ring-1"><div class="acv-dot"></div></div>
+        <div class="acv-ring acv-ring-2"><div class="acv-dot"></div></div>
+        <div class="acv-ring acv-ring-3"><div class="acv-dot"></div></div>
+        <div class="acv-inner">
+          <span class="acv-letter">A</span>
+          <span class="acv-label">BPR Academy</span>
+        </div>
+      </div>
+      <div class="acv-box">
+        <span class="acv-box-n">200+</span>
+        <span class="acv-box-l">Graduates Annually</span>
+      </div>
+    </div>
+    <div class="ac-content reveal d2">
+      <p class="ac-body">BPR Academy represents our enduring commitment to the professional development of Dubai's real estate community beyond the individual recruitment engagement. Through structured mentorship programmes, technical knowledge development, market intelligence briefings, and leadership development initiatives, we invest in the long-term elevation of professional standards across the entire industry - not merely for the organisations and candidates we directly serve, but for the health and sophistication of Dubai's real estate market as a whole.</p>
+      <p class="ac-body" style="margin-top:1rem;">The Academy serves both candidates within our talent community and professionals from our client organisations, providing a sustained learning environment that accelerates career development, deepens market expertise, and builds the capabilities required to thrive in Dubai's continuously evolving and increasingly sophisticated real estate landscape. BPR Academy participants consistently outperform their peers in progression speed, performance ratings, and long-term career satisfaction - a testament to the quality and relevance of our development programmes.</p>
+      <div class="ac-items">
+        <div class="ac-item"><span class="ac-item-ico">📚</span><div><div class="ac-item-title">Professional Development</div><p class="ac-item-body">Structured, curriculum-led programmes covering market knowledge, negotiation excellence, client management, compliance, financial analysis, and leadership - delivered by practitioners with genuine industry experience.</p></div></div>
+        <div class="ac-item"><span class="ac-item-ico">🎯</span><div><div class="ac-item-title">Bespoke Mentorship</div><p class="ac-item-body">One-to-one mentorship from senior industry figures, providing personalised guidance on career strategy, professional development priorities, and leadership approach - tailored specifically to each participant's individual circumstances and ambitions.</p></div></div>
+        <div class="ac-item"><span class="ac-item-ico">🌐</span><div><div class="ac-item-title">Market Intelligence Briefings</div><p class="ac-item-body">Regular, intimate market intelligence sessions providing participants with current, actionable intelligence on Dubai's property market dynamics, transaction volumes, pricing trends, and emerging opportunities - delivered by BPR's senior consultants.</p></div></div>
+        <div class="ac-item"><span class="ac-item-ico">🏆</span><div><div class="ac-item-title">Leadership Development</div><p class="ac-item-body">Advanced leadership and management capability development for senior professionals and high-potential talent, building the strategic thinking, team leadership, and stakeholder management skills required to perform at the most senior levels.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="why-intro reveal">
+    <div class="lbl sw-lbl" style="justify-content:center">Why Partner with BPR</div>
+    <h2 class="sh sw-head">The Definitive Choice<br>for <em>Exceptional</em> Recruitment</h2>
+    <p class="why-sub">Choosing BPR is choosing the most knowledgeable, most connected, and most committed recruitment partner in Dubai's real estate market. These are not marketing claims - they are the convictions of the organisations and professionals who engage us, consistently and exclusively, for their most critical talent decisions.</p>
+  </div>
+  <div class="why-grid reveal d2">
+    <div class="wg">
+      <div class="wg-check">✓</div>
+      <div class="wg-title">Unrivalled Market Intelligence</div>
+      <p class="wg-body">BPR's proprietary intelligence across all sectors, seniority levels, and functional disciplines within Dubai's real estate market is genuinely unrivalled. Accumulated through hundreds of active client relationships and thousands of candidate interactions over fifteen years of specialist practice, our market knowledge enables us to provide advisory that is current, specific, and materially valuable - from pricing strategies and compensation benchmarks to talent availability analysis and competitor hiring intelligence that informs every strategic talent decision.</p>
+    </div>
+    <div class="wg">
+      <div class="wg-check">✓</div>
+      <div class="wg-title">Access to Elite, Pre-Vetted Professionals</div>
+      <p class="wg-body">Our curated talent community encompasses thousands of exceptional real estate professionals at every level - the vast majority of whom are not actively seeking new positions and are entirely inaccessible through conventional recruitment channels. BPR's long-standing personal relationships across Dubai's property community give our clients preferential access to the most talented individuals in the market - including senior figures who would simply not engage with any other recruitment intermediary operating in the emirate.</p>
+    </div>
+    <div class="wg">
+      <div class="wg-check">✓</div>
+      <div class="wg-title">Tailored Recruitment Strategies</div>
+      <p class="wg-body">Every engagement is approached with a strategy specifically designed for the requirements of your organisation, your team, and the precise role you seek to fill. BPR does not deploy generic processes or rely upon database searches as a primary methodology. We invest in understanding your organisation deeply - its culture, its strategy, its performance expectations, and its long-term ambitions - and build a recruitment approach that is optimised for your specific context and designed to deliver the most relevant possible talent at every appointment.</p>
+    </div>
+    <div class="wg">
+      <div class="wg-check">✓</div>
+      <div class="wg-title">Proven Impact Record</div>
+      <p class="wg-body">BPR's placements consistently deliver measurable organisational impact - evidenced by our 98% two-year retention rate, extensive portfolio of successful executive appointments, and long-term relationships with the vast majority of our client organisations. Our reputation is built entirely on the quality of our placements and the outcomes they generate - not on volume of activity, speed of process, or breadth of marketing reach. We measure our success solely by the success of every individual we place and every organisation we serve.</p>
+    </div>
+    <div class="wg">
+      <div class="wg-check">✓</div>
+      <div class="wg-title">Absolute Discretion &amp; Integrity</div>
+      <p class="wg-body">Discretion is not merely a professional obligation at BPR - it is a fundamental value shaping every interaction we conduct on behalf of our clients and candidates. The sensitivity of senior appointments, the competitive nature of Dubai's real estate market, and the personal implications of career decisions for the individuals involved demand an absolute commitment to confidentiality, honesty, and professional integrity that never wavers regardless of the complexity or sensitivity of the engagement we are conducting.</p>
+    </div>
+    <div class="wg">
+      <div class="wg-check">✓</div>
+      <div class="wg-title">Senior, Specialist Consultants</div>
+      <p class="wg-body">Every BPR client engagement is led personally by a senior consultant with deep, direct experience in Dubai's real estate industry - not delegated to junior staff or managed by account managers with generic recruitment backgrounds. Our consultants understand the market you operate in, the challenges you face, and the type of talent that genuinely makes a difference in your specific context - enabling them to ask better questions, make more accurate assessments, and provide more relevant counsel than any generalist competitor.</p>
+    </div>
+  </div>
+</section>
+
+<section class="resources">
+  <div class="reveal">
+    <div class="lbl">Resources &amp; Tools</div>
+    <h2 class="sh">Intelligence to <em>Inform</em><br>Every Decision</h2>
+    <p style="max-width:650px;margin:2rem 0 0;font-size:1.05rem;color:var(--w45);line-height:1.85;">BPR's comprehensive resource library provides organisations and professionals with the market intelligence, strategic frameworks, and practical tools required to make confident, well-informed decisions across every dimension of talent acquisition, career management, and organisational development.</p>
+  </div>
+  <div class="res-grid reveal d2">
+    <div class="rc"><span class="rc-n">01</span><div class="rc-title">Salary &amp; Compensation Benchmarks</div><p class="rc-body">Comprehensive, current salary benchmarking data covering every functional discipline and seniority level within Dubai's real estate industry - updated quarterly based on live market data from hundreds of active placements and client engagements, providing the most accurate and reliable compensation intelligence available in the market.</p><a href="#" class="rc-link">Access Resource -&gt;</a></div>
+    <div class="rc"><span class="rc-n">02</span><div class="rc-title">Market Intelligence Reports</div><p class="rc-body">Quarterly and annual market intelligence publications covering talent availability, hiring trends, market dynamics, regulatory developments, and strategic recruitment insights across all sectors of Dubai's property industry - essential reading for every talent and HR professional operating in the UAE real estate market.</p><a href="#" class="rc-link">Access Resource -&gt;</a></div>
+    <div class="rc"><span class="rc-n">03</span><div class="rc-title">Career Development Guides</div><p class="rc-body">Practical, expert-authored guides covering career strategy, CV optimisation, interview preparation, offer negotiation, and the navigation of Dubai's unique property market - providing candidates at every career stage with the knowledge and confidence to make the most strategic professional decisions available to them.</p><a href="#" class="rc-link">Access Resource -&gt;</a></div>
+    <div class="rc"><span class="rc-n">04</span><div class="rc-title">Hiring Strategy Frameworks</div><p class="rc-body">Evidence-based strategic frameworks for talent planning, succession management, employer branding, and recruitment process optimisation - enabling HR and talent leaders within Dubai's real estate organisations to build more effective, more efficient, and more competitive talent acquisition capabilities that deliver sustained organisational advantage.</p><a href="#" class="rc-link">Access Resource -&gt;</a></div>
+    <div class="rc"><span class="rc-n">05</span><div class="rc-title">Relocation Advisory</div><p class="rc-body">Comprehensive guidance for international professionals considering relocation to Dubai - covering visa categories, employment permit requirements, residential property options by community and budget, schooling, banking, lifestyle considerations, and the practical realities of establishing oneself in the emirate's dynamic and rewarding professional environment with confidence.</p><a href="#" class="rc-link">Access Resource -&gt;</a></div>
+    <div class="rc"><span class="rc-n">06</span><div class="rc-title">Assessment &amp; Evaluation Tools</div><p class="rc-body">Validated assessment tools and evaluation frameworks for competency-based interviewing, psychometric profiling, cultural alignment assessment, and performance prediction - enabling hiring organisations to make more objective, more evidence-based appointment decisions and dramatically reduce the incidence and cost of poor hiring outcomes across the organisation.</p><a href="#" class="rc-link">Access Resource -&gt;</a></div>
+    <div class="rc"><span class="rc-n">07</span><div class="rc-title">Onboarding Toolkits</div><p class="rc-body">Structured onboarding frameworks and practical toolkits designed to accelerate new hire integration, reduce time-to-performance, and materially improve long-term retention outcomes - based on BPR's extensive experience of successful placement outcomes and the integration practices of Dubai's most effective and people-focused real estate organisations.</p><a href="#" class="rc-link">Access Resource -&gt;</a></div>
+    <div class="rc"><span class="rc-n">08</span><div class="rc-title">Regulatory &amp; Compliance Guides</div><p class="rc-body">Up-to-date guidance on employment law, RERA requirements, visa and work permit regulations, and compliance obligations relevant to both employers and employees within Dubai's real estate industry - ensuring that every appointment is structured on a sound and legally compliant foundation from the very outset of the engagement.</p><a href="#" class="rc-link">Access Resource -&gt;</a></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-layout">
+    <div class="ab-visual reveal">
+      <div class="abv-accent">
+        <span class="abv-n">15+</span>
+        <span class="abv-l">Years Market<br>Authority</span>
+      </div>
+      <div class="abv-main">
+        <div class="abv-quote">"We exist to transform the standards of professional recruitment within Dubai's real estate industry - without compromise, without exception."</div>
+      </div>
+      <div class="abv-accent2">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:200;">DXB</span>
+        <span style="font-family:'Montserrat',sans-serif;font-size:6px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--w25);">Dubai, UAE</span>
+      </div>
+    </div>
+    <div class="ab-content reveal d2">
+      <div class="lbl">About BPR</div>
+      <h2 class="sh">Dubai's Definitive<br><em>Property Recruiter</em></h2>
+      <p class="ab-body">Brightstone Property Recruitment was founded on a singular conviction: that Dubai's extraordinary real estate industry deserved a recruitment partner of equivalent calibre - one that operated with the same sophistication, precision, and strategic intelligence as the sector it served. That conviction has guided every decision we have made in the fifteen years since our establishment, and it remains the foundation of everything we do today, informing every engagement, every relationship, and every appointment we facilitate.</p>
+      <p class="ab-body">Over fifteen years of continuous practice in Dubai's market, BPR has established itself as the definitive authority in real estate talent acquisition and executive search across the emirate. Our reputation has been earned through consistent delivery, absolute integrity, and an unwavering focus on the quality of every engagement - measured not by the volume of placements we facilitate, but by the measurable, lasting impact those placements generate for the organisations and professionals we serve throughout the course of their careers and organisations' trajectories.</p>
+      <p class="ab-body">Today, BPR is the trusted partner of choice for hundreds of Dubai's most distinguished real estate organisations - from globally recognised developer brands and international brokerages to specialist investment firms, innovative property technology platforms, and ultra-luxury residential specialists who require the most exceptional talent for the most demanding roles in the emirate's property market.</p>
+      <p class="ab-body">Our team comprises senior consultants with direct personal experience in Dubai's real estate industry - professionals who have operated within the market they now serve, and who bring that direct experience to every briefing, every assessment, and every strategic conversation they conduct. This depth of sector knowledge is what enables BPR to provide counsel of genuine quality, and it is what fundamentally and permanently sets us apart from every generalist and semi-specialist competitor operating in this market.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-mega">
+  <div class="cta-inner reveal">
+    <div class="cta-ey">Begin Your Engagement</div>
+    <h2 class="cta-h">Build Your Team.<br>Secure <em>Exceptional</em> Talent.<br>Elevate Your Business.</h2>
+    <p class="cta-p">Whether you are seeking to appoint a single transformative leader or assemble an entire high-performance team, BPR provides the market intelligence, the talent access, and the strategic capability to deliver outcomes that exceed expectations. Every engagement begins with a conversation. Begin yours today - your most important appointment is one call away.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn btn-solid"><span>Engage BPR Today</span><span>-&gt;</span></a>
+      <a href="#candidates" class="btn btn-outline"><span>Register as Candidate</span><span>-&gt;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="reveal" style="text-align:center">
+    <div class="lbl" style="justify-content:center">Connect with BPR</div>
+    <h2 class="sh">Begin the <em>Conversation</em></h2>
+    <p style="max-width:580px;margin:2rem auto 0;font-size:1rem;color:var(--w45);line-height:1.8;">Every enquiry is handled personally by a senior BPR consultant within 24 hours. Whether you are a hiring organisation seeking exceptional talent or a professional seeking to advance your career, our team is ready to provide expert guidance and immediate support without exception.</p>
+  </div>
+  <div class="ct-layout">
+    <div class="ct-info reveal">
+      <div class="ct-item"><div class="ct-ico">📧</div><div><div class="ct-l">Email</div><div class="ct-v">info@bpr.ae</div></div></div>
+      <div class="ct-item"><div class="ct-ico">🌐</div><div><div class="ct-l">Website</div><div class="ct-v">www.bpr.ae</div></div></div>
+      <div class="ct-item"><div class="ct-ico">📍</div><div><div class="ct-l">Location</div><div class="ct-v">Dubai, United Arab Emirates</div></div></div>
+      <div class="ct-item"><div class="ct-ico">⏱</div><div><div class="ct-l">Response Commitment</div><div class="ct-v">Within 24 Hours, Guaranteed</div></div></div>
+      <div class="ct-quote">
+        <p class="ctq-text">"The quality of every engagement reflects the quality of every relationship. At BPR, relationships are our most valued asset - and they are always built on honesty, expertise, and measurable results."</p>
+        <p class="ctq-attr">- BPR Leadership Team</p>
+      </div>
+    </div>
+    <div class="ct-form reveal d2">
+      <div class="fg"><label class="fl">Full Name</label><input type="text" class="fi" placeholder="Your full name"></div>
+      <div class="fg"><label class="fl">Organisation</label><input type="text" class="fi" placeholder="Your organisation"></div>
+      <div class="fg"><label class="fl">Email Address</label><input type="email" class="fi" placeholder="your@email.com"></div>
+      <div class="fg"><label class="fl">Enquiry Type</label>
+        <select class="fs">
+          <option value="">Select enquiry type</option>
+          <option>Employer - Executive Search</option>
+          <option>Employer - Talent Placement</option>
+          <option>Employer - Strategic Consultancy</option>
+          <option>Candidate - Career Placement</option>
+          <option>Candidate - Career Consultation</option>
+          <option>Candidate - Relocation Support</option>
+          <option>BPR Academy Enquiry</option>
+          <option>Partnership Discussion</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Message</label><textarea class="ft" placeholder="Please describe your requirements and how BPR can assist you..."></textarea></div>
+      <button class="f-submit"><span>Submit Enquiry -&gt;</span></button>
+    </div>
+  </div>
+</section>
+
+<script>
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+const mouse = {x: -1000, y: -1000};
+
+function resize() {
+  W = canvas.width = innerWidth;
+  H = canvas.height = innerHeight;
+}
+resize();
+addEventListener('resize', resize);
+addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+class P {
+  constructor() { this.init(); }
+  init() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.vx = (Math.random() - .5) * .25;
+    this.vy = (Math.random() - .5) * .25;
+    this.r = Math.random() * 1.2 + .2;
+    this.a = Math.random() * .3 + .08;
+    this.life = Math.random() * 500 + 200;
+    this.age = 0;
+  }
+  update() {
+    const dx = mouse.x - this.x, dy = mouse.y - this.y;
+    const d = Math.sqrt(dx*dx + dy*dy);
+    if (d < 180 && d > 0) { this.vx -= dx / d * .06; this.vy -= dy / d * .06; }
+    this.vx *= .99; this.vy *= .99;
+    this.x += this.vx; this.y += this.vy;
+    this.age++;
+    if (this.age > this.life || this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.init();
+  }
+  draw() {
+    const f = this.age < 40 ? this.age / 40 : this.age > this.life - 40 ? (this.life - this.age) / 40 : 1;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${this.a * f})`;
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < 130; i++) particles.push(new P());
+
+function drawConnections() {
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < 90) {
+        ctx.strokeStyle = `rgba(255,255,255,${.08 * (1 - d / 90)})`;
+        ctx.lineWidth = .3;
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function anim() {
+  ctx.clearRect(0, 0, W, H);
+  particles.forEach(p => { p.update(); p.draw(); });
+  drawConnections();
+  requestAnimationFrame(anim);
+}
+anim();
+
+const cur = document.getElementById('C');
+const ring = document.getElementById('CR');
+let rx = 0, ry = 0, cx = 0, cy = 0;
+
+document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; cur.style.cssText += `left:${cx}px;top:${cy}px`; });
+
+function animCursor() {
+  rx += (cx - rx) * .12;
+  ry += (cy - ry) * .12;
+  ring.style.cssText += `left:${rx}px;top:${ry}px`;
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+
+document.querySelectorAll('a,button,.pillar,.sc,.job-item,.cap-i,.cc,.mkt-c,.ind-item,.seg,.wg,.ap-step,.rc,.ins-card,.ac-item,.p-item,.mcard').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cur.style.cssText += 'width:20px;height:20px';
+    ring.style.cssText += 'width:64px;height:64px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cur.style.cssText += 'width:8px;height:8px';
+    ring.style.cssText += 'width:40px;height:40px';
+  });
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('on'), 0);
+    }
+  });
+}, { threshold: .07, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(r => obs.observe(r));
+
+const heroContent = document.querySelector('.hero-content');
+const heroBg = document.querySelector('.hero-letter');
+window.addEventListener('scroll', () => {
+  const sy = scrollY;
+  if (sy < innerHeight * 1.2) {
+    if (heroContent) { heroContent.style.transform = `translateY(${sy * .22}px)`; heroContent.style.opacity = `${1 - sy / (innerHeight * .85)}`; }
+    if (heroBg) heroBg.style.transform = `translateY(calc(-50% + ${sy * .08}px)) rotate(-2deg)`;
+  }
+}, { passive: true });
+
+const impactObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.imp-num').forEach(el => {
+        const sup = el.querySelector('.imp-sup');
+        const supText = sup ? sup.outerHTML : '';
+        const val = parseInt(el.textContent.replace(/\D/g, ''));
+        if (val) {
+          el.innerHTML = '0' + supText;
+          let n = 0;
+          const step = val / 80;
+          const t = setInterval(() => {
+            n = Math.min(n + step, val);
+            el.innerHTML = Math.floor(n).toLocaleString() + supText;
+            if (n >= val) clearInterval(t);
+          }, 14);
+        }
+      });
+      impactObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: .3 });
+const impEl = document.querySelector('.impact-grid');
+if (impEl) impactObs.observe(impEl);
+
+const tt = document.querySelector('.ticker-track');
+if (tt) {
+  tt.addEventListener('mouseenter', () => tt.style.animationPlayState = 'paused');
+  tt.addEventListener('mouseleave', () => tt.style.animationPlayState = 'running');
+}
+
+document.querySelector('.f-submit')?.addEventListener('click', function() {
+  this.innerHTML = '<span>Enquiry Submitted ✓</span>';
+  this.style.background = 'rgba(255,255,255,.85)';
+  setTimeout(() => { this.innerHTML = '<span>Submit Enquiry -&gt;</span>'; this.style.background = ''; }, 3000);
+});
+
+document.querySelector('.hero')?.addEventListener('mousemove', e => {
+  const x = e.clientX / innerWidth;
+  const y = e.clientY / innerHeight;
+  const orb3 = document.querySelector('.orb-3');
+  if (orb3) { orb3.style.transform = `translate(${x * 30 - 15}px, ${y * 30 - 15}px)`; }
+});
+</script>
+</body>
+</html>
