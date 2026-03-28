@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brightstone Property Recruitment | Elegant Page</title>
+  <meta
+    name="description"
+    content="A refined Brightstone Property Recruitment landing page with no header or footer, generous top spacing, and an elegant editorial aesthetic."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --bg-deep: #e6dfd1;
+      --forest: #1e352f;
+      --forest-soft: #314b44;
+      --ink: #21322d;
+      --copy: #58655e;
+      --white: #ffffff;
+      --line: rgba(33, 50, 45, 0.12);
+      --line-light: rgba(255, 255, 255, 0.14);
+      --accent: #9c8467;
+      --accent-soft: rgba(156, 132, 103, 0.14);
+      --shadow: 0 28px 65px rgba(24, 42, 38, 0.12);
+      --radius: 30px;
+      --container: min(1140px, calc(100% - 56px));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(156, 132, 103, 0.09), transparent 30%),
+        linear-gradient(180deg, #f7f3ec 0%, var(--bg) 100%);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .page {
+      position: relative;
+      overflow: hidden;
+      padding-top: 1.5in;
+    }
+
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(33, 50, 45, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(33, 50, 45, 0.02) 1px, transparent 1px);
+      background-size: 88px 88px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.48), transparent 78%);
+      z-index: -1;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .hero {
+      padding-bottom: 88px;
+    }
+
+    .hero-grid,
+    .intro-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      color: var(--forest-soft);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.55;
+    }
+
+    .headline,
+    .section-title,
+    .card-title,
+    .panel-title,
+    .role-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      margin: 0;
+      letter-spacing: -0.04em;
+      line-height: 0.96;
+      font-weight: 500;
+    }
+
+    .headline {
+      font-size: clamp(3.5rem, 8vw, 7.4rem);
+      max-width: 760px;
+    }
+
+    .section-title {
+      font-size: clamp(2.6rem, 4vw, 4.8rem);
+    }
+
+    .headline em,
+    .section-title em,
+    .panel-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .lead,
+    .copy,
+    .card-copy,
+    .role-copy,
+    .contact-copy {
+      font-size: 1.02rem;
+      color: var(--copy);
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 28px 0 0;
+      font-size: 1.08rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--forest);
+      color: var(--white);
+      box-shadow: 0 16px 34px rgba(30, 53, 47, 0.18);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      background: #28463f;
+    }
+
+    .button-secondary {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--ink);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      background: var(--white);
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 560px;
+      border-radius: 36px;
+      overflow: hidden;
+      background:
+        linear-gradient(140deg, rgba(30, 53, 47, 0.98), rgba(41, 65, 59, 0.92)),
+        #243b35;
+      box-shadow: 0 34px 80px rgba(30, 53, 47, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(125deg, rgba(255, 255, 255, 0.08), transparent 32%),
+        radial-gradient(circle at top right, rgba(156, 132, 103, 0.32), transparent 30%);
+    }
+
+    .hero-art::after {
+      content: "BRIGHTSTONE";
+      position: absolute;
+      left: -12px;
+      bottom: 24px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(4.8rem, 11vw, 8.5rem);
+      letter-spacing: -0.06em;
+      color: rgba(255, 255, 255, 0.08);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .hero-frame {
+      position: absolute;
+      inset: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 26px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-note {
+      max-width: 320px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.96rem;
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--white);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .hero-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .hero-stat {
+      padding: 18px 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-stat strong {
+      display: block;
+      color: var(--white);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat span {
+      display: block;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 0.76rem;
+    }
+
+    .panel,
+    .card,
+    .contact-panel {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .panel {
+      padding: 38px;
+    }
+
+    .panel-title {
+      font-size: clamp(2.1rem, 3.2vw, 3.4rem);
+      margin-bottom: 18px;
+    }
+
+    .services-grid,
+    .roles-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 30px;
+      min-height: 100%;
+      transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-4px);
+      border-color: rgba(33, 50, 45, 0.18);
+      box-shadow: 0 32px 64px rgba(24, 42, 38, 0.15);
+    }
+
+    .card-index,
+    .role-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      min-height: 42px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--accent-soft);
+      color: var(--forest);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .card-index {
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .roles-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .role {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .role:first-child,
+    .role:nth-child(2) {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .role-title {
+      font-size: 2rem;
+      margin: 18px 0 10px;
+    }
+
+    .contact-panel {
+      padding: 36px;
+      min-height: 100%;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .contact-item {
+      padding: 0 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--forest-soft);
+    }
+
+    .contact-value {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.72rem;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--forest-soft);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(33, 50, 45, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--ink);
+      padding: 16px 18px;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .field textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: rgba(30, 53, 47, 0.3);
+      box-shadow: 0 0 0 4px rgba(30, 53, 47, 0.06);
+      background: var(--white);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .intro-grid,
+      .contact-grid,
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-grid,
+      .intro-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 500px;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .page {
+        padding-top: 1.5in;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .services-grid,
+      .roles-grid,
+      .form-grid,
+      .hero-stat-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 540px;
+      }
+
+      .hero-frame,
+      .panel,
+      .card,
+      .contact-panel {
+        padding: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Brightstone Property Recruitment</div>
+          <h1 class="headline">
+            A quieter, more <em>elegant</em><br>
+            standard for Dubai real estate recruitment.
+          </h1>
+          <p class="lead">
+            Brightstone connects developers, brokerages, investors, and specialist property businesses with exceptional professionals through discreet search, refined hiring strategy, and a more considered recruitment experience.
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="#contact">Start a conversation</a>
+            <a class="button button-secondary" href="#specialisms">View specialisms</a>
+          </div>
+        </div>
+
+        <div class="hero-art reveal" aria-label="Editorial highlight panel">
+          <div class="hero-frame">
+            <div class="hero-note">
+              <strong>Editorial focus</strong>
+              Built with more restraint, stronger whitespace, and a premium recruitment feel inspired by Macdonald &amp; Company style cues while remaining distinct to Brightstone.
+            </div>
+            <div class="hero-stat-row">
+              <div class="hero-stat">
+                <strong>1,200+</strong>
+                <span>Placements</span>
+              </div>
+              <div class="hero-stat">
+                <strong>98%</strong>
+                <span>Retention</span>
+              </div>
+              <div class="hero-stat">
+                <strong>350+</strong>
+                <span>Partners</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container intro-grid">
+        <div class="panel reveal">
+          <div class="eyebrow">Positioning</div>
+          <h2 class="panel-title">We do not simply place talent. We shape <em>commercial advantage.</em></h2>
+        </div>
+        <div class="panel reveal">
+          <p class="copy">
+            Brightstone was designed for clients who want less noise and more judgment. Every assignment is handled with discretion, market clarity, and a sharper focus on fit, credibility, and long-term business value.
+          </p>
+          <p class="copy">
+            The result is a recruitment experience that feels more consultative, more elevated, and more aligned with the standards of premium real estate businesses in Dubai.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="specialisms">
+      <div class="container">
+        <div class="reveal" style="margin-bottom: 32px;">
+          <div class="eyebrow">Core expertise</div>
+          <h2 class="section-title">Specialist coverage with a more <em>editorial</em> presentation</h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="card reveal">
+            <div class="card-index">01</div>
+            <h3 class="card-title">Executive Search</h3>
+            <p class="card-copy">
+              Confidential leadership hiring for businesses seeking senior figures capable of influencing revenue, reputation, and strategic direction.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-index">02</div>
+            <h3 class="card-title">Permanent Hiring</h3>
+            <p class="card-copy">
+              Carefully matched placements across development, sales, operations, marketing, and support functions with stronger emphasis on retention.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-index">03</div>
+            <h3 class="card-title">Market Intelligence</h3>
+            <p class="card-copy">
+              Live compensation insight, talent mapping, competitor awareness, and practical guidance that supports better hiring decisions.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-index">04</div>
+            <h3 class="card-title">Candidate Advisory</h3>
+            <p class="card-copy">
+              Discreet representation, relocation support, and career consultation for professionals seeking a more strategic next move.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="reveal" style="margin-bottom: 30px;">
+          <div class="eyebrow">Selected roles</div>
+          <h2 class="section-title">Appointments across the market's most <em>important mandates</em></h2>
+        </div>
+
+        <div class="panel reveal">
+          <div class="roles-grid">
+            <div class="role">
+              <span class="role-tag">Development</span>
+              <h3 class="role-title">Developer and project leadership</h3>
+              <p class="role-copy">
+                Search for development directors, project leadership, launch specialists, and operational figures guiding high-value schemes.
+              </p>
+            </div>
+
+            <div class="role">
+              <span class="role-tag">Brokerage</span>
+              <h3 class="role-title">Elite sales and brokerage talent</h3>
+              <p class="role-copy">
+                Proven brokers, team leaders, and revenue-driving sales professionals with the network and market authority to perform quickly.
+              </p>
+            </div>
+
+            <div class="role">
+              <span class="role-tag">Investment</span>
+              <h3 class="role-title">Investment and asset management</h3>
+              <p class="role-copy">
+                Commercially strong professionals across acquisitions, portfolio management, analysis, and institutional real estate strategy.
+              </p>
+            </div>
+
+            <div class="role">
+              <span class="role-tag">Luxury</span>
+              <h3 class="role-title">Luxury and private client advisory</h3>
+              <p class="role-copy">
+                Specialists with the presence, discretion, and client sophistication required for high-value residential and UHNW mandates.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <aside class="contact-panel reveal">
+          <div class="eyebrow">Contact</div>
+          <h2 class="section-title">Begin with a more <em>considered</em> conversation</h2>
+          <p class="contact-copy">
+            Whether you are appointing a senior leader or exploring your next move in Dubai real estate, Brightstone provides discreet advice and a more premium engagement experience.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <div class="contact-value">info@bpr.ae</div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Location</span>
+              <div class="contact-value">Dubai, UAE</div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Response commitment</span>
+              <div class="contact-value">Within 24 hours</div>
+            </div>
+          </div>
+        </aside>
+
+        <div class="contact-panel reveal">
+          <form class="form-grid" id="enquiry-form">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Your full name">
+            </div>
+
+            <div class="field">
+              <label for="company">Organisation</label>
+              <input id="company" name="company" type="text" placeholder="Your organisation">
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com">
+            </div>
+
+            <div class="field">
+              <label for="type">Enquiry type</label>
+              <select id="type" name="type">
+                <option value="">Select enquiry type</option>
+                <option>Employer - Executive Search</option>
+                <option>Employer - Talent Placement</option>
+                <option>Employer - Strategic Consultancy</option>
+                <option>Candidate - Career Placement</option>
+                <option>Candidate - Career Consultation</option>
+                <option>Candidate - Relocation Support</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell Brightstone how we can support your search or career move."></textarea>
+            </div>
+
+            <div class="field full">
+              <button class="button button-primary" type="submit" id="submit-button">Submit enquiry</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.14,
+        rootMargin: "0px 0px -30px 0px"
+      });
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+
+    const form = document.getElementById("enquiry-form");
+    const submitButton = document.getElementById("submit-button");
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      submitButton.textContent = "Enquiry submitted";
+      submitButton.disabled = true;
+
+      window.setTimeout(() => {
+        submitButton.textContent = "Submit enquiry";
+        submitButton.disabled = false;
+      }, 2200);
+    });
+  </script>
+</body>
+</html>
