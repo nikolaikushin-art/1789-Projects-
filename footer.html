@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightstone Property Recruitment Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=EB+Garamond:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #051d2e;
+  --white: #ffffff;
+  --w60: rgba(255, 255, 255, 0.6);
+  --w50: rgba(255, 255, 255, 0.5);
+  --w40: rgba(255, 255, 255, 0.4);
+  --w30: rgba(255, 255, 255, 0.3);
+  --w25: rgba(255, 255, 255, 0.25);
+  --w20: rgba(255, 255, 255, 0.2);
+  --w15: rgba(255, 255, 255, 0.15);
+  --w10: rgba(255, 255, 255, 0.1);
+  --w08: rgba(255, 255, 255, 0.08);
+  --w06: rgba(255, 255, 255, 0.06);
+  --w04: rgba(255, 255, 255, 0.04);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--deep);
+  color: var(--white);
+  font-family: "EB Garamond", Georgia, serif;
+}
+
+footer {
+  background: #020b13;
+  color: #fff;
+  border-top: 1px solid var(--w08);
+  position: relative;
+  z-index: 10;
+}
+
+.ft-hero {
+  padding: 8rem 7vw 5rem;
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr;
+  gap: 4rem;
+  border-bottom: 1px solid var(--w06);
+}
+
+.ftb-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.3rem;
+}
+
+.ftb-sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--w20);
+  margin-bottom: 2rem;
+}
+
+.ftb-tagline {
+  font-size: 0.88rem;
+  color: var(--w30);
+  line-height: 1.85;
+  max-width: 360px;
+  margin-bottom: 2.5rem;
+}
+
+.ftb-social {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.fsoc {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--w15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--w40);
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: all 0.3s;
+}
+
+.fsoc:hover {
+  border-color: #fff;
+  color: #fff;
+  background: var(--w08);
+}
+
+.ft-col-t {
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.ft-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+}
+
+.ft-links a {
+  font-size: 0.88rem;
+  color: var(--w30);
+  text-decoration: none;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ft-links a::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width 0.3s;
+  flex-shrink: 0;
+}
+
+.ft-links a:hover {
+  color: #fff;
+  padding-left: 0.3rem;
+}
+
+.ft-links a:hover::before {
+  width: 10px;
+}
+
+.ft-mid {
+  padding: 4rem 7vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  border-bottom: 1px solid var(--w06);
+}
+
+.ftm-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--w15);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.ftm-val {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  color: var(--w60);
+}
+
+.ft-sectors {
+  padding: 2.5rem 7vw;
+  border-bottom: 1px solid var(--w06);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.fts-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--w20);
+  margin-right: 0.5rem;
+}
+
+.fts-pill {
+  font-family: "Montserrat", sans-serif;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--w08);
+  color: var(--w25);
+  transition: all 0.3s;
+}
+
+.fts-pill:hover {
+  border-color: var(--w30);
+  color: var(--w60);
+}
+
+.ft-awards {
+  padding: 2.5rem 7vw;
+  border-bottom: 1px solid var(--w06);
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fta-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--w20);
+}
+
+.fta-item {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.95rem;
+  color: var(--w30);
+  font-style: italic;
+}
+
+.fta-sep {
+  width: 1px;
+  height: 20px;
+  background: var(--w10);
+}
+
+.ft-bottom {
+  padding: 2rem 7vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ft-copy {
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--w15);
+}
+
+.ft-legal {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.ft-legal a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--w15);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.ft-legal a:hover {
+  color: var(--w50);
+}
+
+.ft-badge {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--w15);
+}
+
+@media (max-width: 1200px) {
+  .ft-hero {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ft-hero,
+  .ft-mid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+  <footer>
+    <div class="ft-hero">
+      <div>
+        <div class="ftb-logo">Brightstone Property Recruitment</div>
+        <div class="ftb-sub">Dubai's Definitive Real Estate Executive Search</div>
+        <p class="ftb-tagline">We do not merely fill positions - we architect careers, construct elite teams, and provide organisations with sustainable strategic advantage. Every engagement is meticulously curated, executed with precision, discretion, and unwavering strategic foresight across every sector of Dubai's extraordinary property market.</p>
+        <div class="ftb-social">
+          <a href="#" class="fsoc">in</a>
+          <a href="#" class="fsoc">tw</a>
+          <a href="#" class="fsoc">ig</a>
+          <a href="#" class="fsoc">yt</a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-col-t">Employers</div>
+        <ul class="ft-links">
+          <li><a href="#">Executive Search</a></li>
+          <li><a href="#">Talent Placement</a></li>
+          <li><a href="#">Permanent Hiring</a></li>
+          <li><a href="#">Specialised Roles</a></li>
+          <li><a href="#">Post-Sales Teams</a></li>
+          <li><a href="#">Strategic Consultancy</a></li>
+          <li><a href="#">HR Advisory</a></li>
+          <li><a href="#">Talent Mapping</a></li>
+          <li><a href="#">Succession Planning</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-t">Candidates</div>
+        <ul class="ft-links">
+          <li><a href="#">Register Profile</a></li>
+          <li><a href="#">Career Placement</a></li>
+          <li><a href="#">Career Consultation</a></li>
+          <li><a href="#">Relocation Support</a></li>
+          <li><a href="#">Opportunity Matching</a></li>
+          <li><a href="#">Salary Benchmarking</a></li>
+          <li><a href="#">BPR Academy</a></li>
+          <li><a href="#">Mentorship</a></li>
+          <li><a href="#">CV Guidance</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-t">Sectors</div>
+        <ul class="ft-links">
+          <li><a href="#">Luxury Real Estate</a></li>
+          <li><a href="#">Developer Roles</a></li>
+          <li><a href="#">Brokerage</a></li>
+          <li><a href="#">Investment</a></li>
+          <li><a href="#">Construction</a></li>
+          <li><a href="#">Property Management</a></li>
+          <li><a href="#">Holiday Homes</a></li>
+          <li><a href="#">PropTech</a></li>
+          <li><a href="#">Corporate RE</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-t">Company</div>
+        <ul class="ft-links">
+          <li><a href="#">About BPR</a></li>
+          <li><a href="#">Our Approach</a></li>
+          <li><a href="#">Market Insights</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">BPR Academy</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Advisors</a></li>
+          <li><a href="#">Careers at BPR</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ft-mid">
+      <div><span class="ftm-label">Primary Office</span><span class="ftm-val">Dubai, United Arab Emirates</span></div>
+      <div><span class="ftm-label">Direct Contact</span><span class="ftm-val">info@bpr.ae</span></div>
+      <div><span class="ftm-label">Digital Presence</span><span class="ftm-val">www.bpr.ae</span></div>
+    </div>
+
+    <div class="ft-sectors">
+      <span class="fts-label">Market Coverage</span>
+      <span class="fts-pill">Residential</span>
+      <span class="fts-pill">Commercial</span>
+      <span class="fts-pill">Industrial</span>
+      <span class="fts-pill">Luxury</span>
+      <span class="fts-pill">Investment</span>
+      <span class="fts-pill">Corporate</span>
+      <span class="fts-pill">Holiday Homes</span>
+      <span class="fts-pill">PropTech</span>
+      <span class="fts-pill">Wealth</span>
+      <span class="fts-pill">Construction</span>
+      <span class="fts-pill">Primary Market</span>
+      <span class="fts-pill">Secondary Market</span>
+      <span class="fts-pill">Off-Plan</span>
+      <span class="fts-pill">Mixed-Use</span>
+      <span class="fts-pill">Niche</span>
+    </div>
+
+    <div class="ft-awards">
+      <span class="fta-label">Recognition</span>
+      <span class="fta-item">Dubai's #1 Specialist Real Estate Recruiter</span>
+      <div class="fta-sep"></div>
+      <span class="fta-item">15+ Years of Market Authority</span>
+      <div class="fta-sep"></div>
+      <span class="fta-item">98% Two-Year Retention Rate</span>
+      <div class="fta-sep"></div>
+      <span class="fta-item">350+ Active Client Partners</span>
+      <div class="fta-sep"></div>
+      <span class="fta-item">1,200+ Elite Placements Delivered</span>
+    </div>
+
+    <div class="ft-bottom">
+      <span class="ft-copy">© 2025 Brightstone Property Recruitment. All Rights Reserved. Registered in Dubai, UAE.</span>
+      <div class="ft-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Regulatory</a>
+      </div>
+      <span class="ft-badge">Architecting Careers. Constructing Teams. Delivering Excellence.</span>
+    </div>
+  </footer>
+</body>
+</html>
