@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightstone Property Recruitment - Footer Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --obsidian: #0d1411;
+  --forest: #17211d;
+  --forest-soft: #21302a;
+  --paper-line: rgba(255, 255, 255, 0.14);
+  --paper-line-soft: rgba(255, 255, 255, 0.08);
+  --white: #ffffff;
+  --white-soft: rgba(255, 255, 255, 0.74);
+  --white-faint: rgba(255, 255, 255, 0.46);
+  --gold: #a08259;
+  --gold-soft: rgba(160, 130, 89, 0.18);
+  --max: 1280px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #09100d;
+  color: var(--white);
+  font-family: "Inter", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(160, 130, 89, 0.16), transparent 28%),
+    linear-gradient(160deg, #121b17 0%, #0f1714 45%, #09100d 100%);
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 20% 100%, 100% 120px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent 90%);
+}
+
+.shell {
+  width: min(var(--max), calc(100% - 64px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-top {
+  padding: 88px 0 56px;
+  border-bottom: 1px solid var(--paper-line-soft);
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 64px;
+}
+
+.footer-eyebrow,
+.footer-col h3,
+.footer-meta-label,
+.footer-nav a,
+.footer-awards-label,
+.footer-utility a,
+.contact-link-label {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.footer-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.72rem;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.footer-eyebrow::before {
+  content: "";
+  width: 42px;
+  height: 1px;
+  background: rgba(160, 130, 89, 0.48);
+}
+
+.footer-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.3rem, 6vw, 6.2rem);
+  line-height: 0.92;
+  font-weight: 500;
+  max-width: 12ch;
+}
+
+.footer-title em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.footer-copy {
+  margin: 26px 0 0;
+  max-width: 62ch;
+  color: var(--white-soft);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.footer-signature {
+  margin-top: 34px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 22px;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-mark {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid rgba(160, 130, 89, 0.44);
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.65rem;
+  color: var(--gold);
+}
+
+.brand-copy strong {
+  display: block;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.brand-copy span {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.93rem;
+  color: var(--white-faint);
+}
+
+.contact-links {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.contact-card {
+  padding: 22px 24px;
+  border: 1px solid var(--paper-line-soft);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.contact-link-label {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--white-faint);
+  margin-bottom: 8px;
+}
+
+.contact-link-value {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.75rem;
+  line-height: 1.1;
+}
+
+.footer-middle {
+  padding: 44px 0 52px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr;
+  gap: 36px;
+  border-bottom: 1px solid var(--paper-line-soft);
+}
+
+.footer-col h3 {
+  margin: 0 0 18px;
+  font-size: 0.72rem;
+  color: var(--white-faint);
+}
+
+.footer-nav {
+  display: grid;
+  gap: 13px;
+}
+
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: var(--white-soft);
+  transition: color 0.24s ease, transform 0.24s ease;
+}
+
+.footer-nav a::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: rgba(160, 130, 89, 0.65);
+  transition: width 0.24s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+.footer-nav a:hover::before {
+  width: 14px;
+}
+
+.footer-note {
+  padding-right: 28px;
+}
+
+.footer-note p {
+  margin: 0;
+  color: var(--white-soft);
+  line-height: 1.8;
+  font-size: 0.98rem;
+}
+
+.footer-meta {
+  padding: 34px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  border-bottom: 1px solid var(--paper-line-soft);
+}
+
+.footer-meta-item {
+  min-height: 120px;
+  border: 1px solid var(--paper-line-soft);
+  border-radius: 18px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.footer-meta-label {
+  display: block;
+  font-size: 0.66rem;
+  color: var(--white-faint);
+  margin-bottom: 12px;
+}
+
+.footer-meta-value {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.65rem;
+  line-height: 1.14;
+}
+
+.footer-awards {
+  padding: 26px 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  border-bottom: 1px solid var(--paper-line-soft);
+}
+
+.footer-awards-label {
+  font-size: 0.68rem;
+  color: var(--gold);
+}
+
+.award {
+  color: var(--white-soft);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.award-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--paper-line);
+}
+
+.footer-bottom {
+  padding: 22px 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px 28px;
+}
+
+.footer-copyline {
+  color: var(--white-faint);
+  font-size: 0.76rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer-utility {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-utility a {
+  font-size: 0.72rem;
+  color: var(--white-faint);
+}
+
+.footer-utility a:hover {
+  color: var(--white);
+}
+
+.footer-phrase {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  color: var(--white-soft);
+  font-style: italic;
+}
+
+@media (max-width: 1100px) {
+  .footer-top,
+  .footer-middle {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .shell {
+    width: min(var(--max), calc(100% - 32px));
+  }
+
+  .footer-top {
+    padding: 72px 0 44px;
+    gap: 36px;
+  }
+
+  .footer-middle {
+    padding: 34px 0 40px;
+  }
+
+  .footer-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-title {
+    font-size: 2.7rem;
+  }
+
+  .contact-link-value {
+    font-size: 1.5rem;
+  }
+}
+</style>
+</head>
+<body>
+  <footer>
+    <div class="shell">
+      <section class="footer-top">
+        <div>
+          <span class="footer-eyebrow">Brightstone Property Recruitment</span>
+          <h1 class="footer-title">Recruitment, refined for <em>serious property leadership.</em></h1>
+          <p class="footer-copy">
+            Brightstone Property Recruitment connects distinguished real estate organisations with the commercial, development, investment, and operational talent that shapes high-value growth. The approach is discreet, rigorously selective, and calibrated for long-term market impact.
+          </p>
+          <div class="footer-signature">
+            <div class="brand-lockup">
+              <div class="brand-mark">B</div>
+              <div class="brand-copy">
+                <strong>Brightstone Property Recruitment</strong>
+                <span>Dubai's definitive real estate executive search authority</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-links">
+          <div class="contact-card">
+            <span class="contact-link-label">Primary office</span>
+            <span class="contact-link-value">Dubai, United Arab Emirates</span>
+          </div>
+          <div class="contact-card">
+            <span class="contact-link-label">Direct contact</span>
+            <span class="contact-link-value">info@bpr.ae</span>
+          </div>
+          <div class="contact-card">
+            <span class="contact-link-label">Digital presence</span>
+            <span class="contact-link-value">www.bpr.ae</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="footer-middle">
+        <div class="footer-note">
+          <h3>Our position</h3>
+          <p>
+            We do not operate as a volume recruiter. We act as a specialist advisor to boards, founders, investment houses, developers, brokerages, and growth-stage property businesses requiring talent with strategic consequence.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Employers</h3>
+          <nav class="footer-nav">
+            <a href="#">Executive Search</a>
+            <a href="#">Talent Placement</a>
+            <a href="#">Permanent Hiring</a>
+            <a href="#">Strategic Consultancy</a>
+            <a href="#">Succession Planning</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h3>Candidates</h3>
+          <nav class="footer-nav">
+            <a href="#">Register Profile</a>
+            <a href="#">Career Placement</a>
+            <a href="#">Career Consultation</a>
+            <a href="#">Relocation Support</a>
+            <a href="#">Salary Benchmarking</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h3>Sectors</h3>
+          <nav class="footer-nav">
+            <a href="#">Luxury Residential</a>
+            <a href="#">Developers</a>
+            <a href="#">Investment</a>
+            <a href="#">Brokerage</a>
+            <a href="#">PropTech</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="footer-meta">
+        <div class="footer-meta-item">
+          <span class="footer-meta-label">Placements delivered</span>
+          <span class="footer-meta-value">1,200+</span>
+        </div>
+        <div class="footer-meta-item">
+          <span class="footer-meta-label">Active client partners</span>
+          <span class="footer-meta-value">350+</span>
+        </div>
+        <div class="footer-meta-item">
+          <span class="footer-meta-label">Two-year retention</span>
+          <span class="footer-meta-value">98%</span>
+        </div>
+        <div class="footer-meta-item">
+          <span class="footer-meta-label">Years in market</span>
+          <span class="footer-meta-value">15+</span>
+        </div>
+      </section>
+
+      <section class="footer-awards">
+        <span class="footer-awards-label">Recognition</span>
+        <span class="award">Dubai's specialist real estate recruitment authority</span>
+        <span class="award-sep"></span>
+        <span class="award">Trusted across executive, commercial, and development hiring</span>
+        <span class="award-sep"></span>
+        <span class="award">Built for precision, discretion, and enduring placements</span>
+      </section>
+
+      <section class="footer-bottom">
+        <span class="footer-copyline">© 2025 Brightstone Property Recruitment. All rights reserved.</span>
+        <nav class="footer-utility">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Regulatory</a>
+        </nav>
+        <span class="footer-phrase">Architecting careers. Building high-performance property teams.</span>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>

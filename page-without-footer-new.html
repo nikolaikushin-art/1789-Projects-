@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightstone Property Recruitment - Editorial Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --obsidian: #111915;
+  --forest: #16241f;
+  --forest-soft: #20342d;
+  --stone: #f4efe7;
+  --stone-deep: #e8e0d4;
+  --paper: #fbf8f3;
+  --ink: #18211f;
+  --muted: #58625f;
+  --gold: #9d7f57;
+  --gold-soft: rgba(157, 127, 87, 0.18);
+  --line: rgba(24, 33, 31, 0.12);
+  --line-light: rgba(255, 255, 255, 0.12);
+  --white-soft: rgba(255, 255, 255, 0.76);
+  --max: 1280px;
+  --shadow: 0 30px 80px rgba(17, 25, 21, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.page-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(157, 127, 87, 0.04) 0, rgba(157, 127, 87, 0.04) 1px, transparent 1px, transparent 25%),
+    linear-gradient(rgba(17, 25, 21, 0.018) 1px, transparent 1px);
+  background-size: 25% 100%, 100% 120px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.05));
+  z-index: 0;
+}
+
+.container {
+  width: min(var(--max), calc(100% - 64px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(16px);
+  background: rgba(251, 248, 243, 0.82);
+  border-bottom: 1px solid rgba(24, 33, 31, 0.08);
+}
+
+.topbar-inner {
+  width: min(var(--max), calc(100% - 64px));
+  margin: 0 auto;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(157, 127, 87, 0.42);
+  display: grid;
+  place-items: center;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.brand-copy strong,
+.eyebrow,
+.pill,
+.kicker,
+.mini-label,
+.stat-label,
+.timeline-index,
+.contact-label,
+.button,
+.nav-links a {
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.brand-copy strong {
+  display: block;
+  font-size: 0.84rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.brand-copy span {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 0.83rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(24, 33, 31, 0.72);
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 22px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: transform 0.28s ease, background 0.28s ease, color 0.28s ease, border-color 0.28s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+}
+
+.button-primary:hover {
+  background: #0c120f;
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid rgba(24, 33, 31, 0.16);
+}
+
+.button-secondary:hover {
+  border-color: rgba(24, 33, 31, 0.32);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.hero {
+  padding: 56px 0 110px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.85fr);
+  gap: 48px;
+  align-items: stretch;
+}
+
+.hero-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  padding: 80px 72px;
+  background:
+    radial-gradient(circle at top right, rgba(157, 127, 87, 0.24), transparent 34%),
+    linear-gradient(145deg, #121b17 0%, #182620 45%, #101814 100%);
+  color: #fff;
+  min-height: 760px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border: 1px solid var(--line-light);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.hero-panel::after {
+  content: "B";
+  position: absolute;
+  right: -16px;
+  bottom: -58px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(15rem, 34vw, 28rem);
+  line-height: 0.82;
+  color: rgba(255, 255, 255, 0.045);
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  font-size: 0.74rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 42px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.hero-title,
+.section-title,
+.quote,
+.feature-card h3,
+.service-card h3,
+.sector-card h3,
+.timeline-copy h3,
+.split-panel h3,
+.contact-card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.hero-title {
+  margin: 0;
+  max-width: 780px;
+  font-size: clamp(3.8rem, 7vw, 7rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: #e6d6c0;
+  font-weight: 400;
+}
+
+.hero-copy {
+  max-width: 620px;
+  margin: 28px 0 38px;
+  font-size: 1.1rem;
+  color: var(--white-soft);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-detail {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding-top: 42px;
+}
+
+.detail-item {
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.detail-item strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 2rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+}
+
+.detail-item span {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.hero-rail {
+  display: grid;
+  gap: 20px;
+}
+
+.rail-card,
+.insight-card,
+.service-card,
+.sector-card,
+.contact-card,
+.stat-card,
+.split-panel {
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(24, 33, 31, 0.08);
+  box-shadow: 0 18px 40px rgba(17, 25, 21, 0.06);
+}
+
+.rail-card {
+  padding: 34px 32px;
+}
+
+.rail-card.dark {
+  background: linear-gradient(180deg, var(--forest) 0%, var(--obsidian) 100%);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.rail-card.dark p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  background: var(--gold-soft);
+  color: #7e6240;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.dark .pill {
+  background: rgba(157, 127, 87, 0.14);
+  color: #dbc8b0;
+}
+
+.rail-card h3,
+.section-title {
+  margin: 0;
+}
+
+.rail-card h3 {
+  font-size: 2.1rem;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.rail-card p,
+.section-copy,
+.service-card p,
+.sector-card p,
+.timeline-copy p,
+.split-panel p,
+.contact-card p {
+  color: var(--muted);
+}
+
+.rail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.rail-grid div {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  min-height: 110px;
+}
+
+.rail-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.rail-grid span {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.92rem;
+}
+
+.section {
+  padding: 88px 0;
+}
+
+.section.alt {
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.45) 100%);
+}
+
+.section.dark {
+  background:
+    radial-gradient(circle at top right, rgba(157, 127, 87, 0.12), transparent 30%),
+    linear-gradient(180deg, #16211d 0%, #101814 100%);
+  color: #fff;
+}
+
+.section.dark .section-copy,
+.section.dark .mini-label,
+.section.dark .service-card p,
+.section.dark .timeline-copy p,
+.section.dark .stat-card p,
+.section.dark .stat-label {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.65fr);
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 46px;
+}
+
+.mini-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  color: rgba(24, 33, 31, 0.5);
+}
+
+.mini-label::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.section-title {
+  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+}
+
+.section-title em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-copy {
+  margin: 0;
+  font-size: 1.04rem;
+}
+
+.quote-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+.quote-card {
+  padding: 50px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #fff 0%, #f9f5ef 100%);
+  border: 1px solid rgba(24, 33, 31, 0.08);
+  box-shadow: 0 18px 40px rgba(17, 25, 21, 0.06);
+}
+
+.quote {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.quote-note {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.feature-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.feature-card {
+  padding: 30px 28px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(24, 33, 31, 0.08);
+}
+
+.feature-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.7rem;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.service-card {
+  padding: 34px;
+  position: relative;
+}
+
+.service-card::before {
+  content: "";
+  width: 56px;
+  height: 1px;
+  display: block;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.service-card h3 {
+  margin: 0 0 14px;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.kicker {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.stat-band {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stat-card {
+  padding: 42px 32px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.stat-number {
+  display: block;
+  margin-bottom: 12px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3rem, 5vw, 4.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.stat-label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.23em;
+}
+
+.sector-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.sector-card {
+  padding: 34px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sector-card .index {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.sector-card h3 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.timeline {
+  display: grid;
+  gap: 18px;
+}
+
+.timeline-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 22px;
+  padding: 30px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-row:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-index {
+  font-size: 0.88rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  padding-top: 8px;
+}
+
+.timeline-copy h3 {
+  margin: 0 0 12px;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.timeline-copy p {
+  margin: 0;
+}
+
+.split-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.split-panel {
+  padding: 40px;
+}
+
+.split-panel.dark {
+  background: linear-gradient(180deg, var(--forest) 0%, var(--obsidian) 100%);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.split-panel h3 {
+  margin: 0 0 18px;
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.split-list {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.split-list li {
+  padding-top: 14px;
+  border-top: 1px solid rgba(24, 33, 31, 0.1);
+}
+
+.split-panel.dark .split-list li {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 22px;
+}
+
+.contact-card {
+  padding: 40px;
+}
+
+.contact-card.dark {
+  background: linear-gradient(180deg, var(--forest) 0%, var(--obsidian) 100%);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.contact-card.dark p,
+.contact-card.dark .contact-value,
+.contact-card.dark .contact-label {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.contact-card h3 {
+  margin: 0 0 16px;
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.contact-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.contact-item {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+  margin-bottom: 6px;
+}
+
+.contact-value {
+  display: block;
+  font-size: 1.08rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(24, 33, 31, 0.54);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(24, 33, 31, 0.12);
+  border-radius: 18px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  font: inherit;
+  outline: none;
+}
+
+.field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(157, 127, 87, 0.8);
+  box-shadow: 0 0 0 4px rgba(157, 127, 87, 0.08);
+}
+
+.signature-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.signature-strip strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1180px) {
+  .hero-grid,
+  .section-head,
+  .quote-panel,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid,
+  .sector-grid,
+  .split-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-band {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .container,
+  .topbar-inner {
+    width: min(var(--max), calc(100% - 36px));
+  }
+
+  .topbar-inner {
+    min-height: 72px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding: 24px 0 72px;
+  }
+
+  .hero-panel {
+    padding: 52px 28px;
+    min-height: auto;
+  }
+
+  .hero-detail,
+  .form-grid,
+  .service-grid,
+  .sector-grid,
+  .split-grid,
+  .stat-band {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .quote-card,
+  .feature-card,
+  .service-card,
+  .sector-card,
+  .contact-card,
+  .split-panel {
+    padding: 28px;
+  }
+
+  .section {
+    padding: 68px 0;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page-shell">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#top" class="brand">
+        <div class="brand-mark">B</div>
+        <div class="brand-copy">
+          <strong>Brightstone Property Recruitment</strong>
+          <span>Dubai real estate search, reimagined with precision</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#advisory">Advisory</a>
+        <a href="#services">Services</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#method">Method</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="button button-primary">Start a conversation</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-panel reveal on">
+          <div>
+            <div class="eyebrow">Dubai's definitive property recruitment authority</div>
+            <h1 class="hero-title">Elegant recruitment for ambitious real estate businesses and the people who shape them.</h1>
+            <p class="hero-copy">This redesign takes the original Brightstone proposition into a more editorial, strategic direction - calmer, sharper, and more premium. The result is a page that feels closer to a luxury advisory or consulting brand than a conventional recruiter.</p>
+            <div class="hero-actions">
+              <a href="#services" class="button button-primary">Explore capabilities</a>
+              <a href="#contact" class="button button-secondary">Speak with Brightstone</a>
+            </div>
+          </div>
+          <div class="hero-detail">
+            <div class="detail-item">
+              <strong>1,200+</strong>
+              <span>placements delivered across Dubai's property market</span>
+            </div>
+            <div class="detail-item">
+              <strong>98%</strong>
+              <span>two-year retention built on fit, discretion, and timing</span>
+            </div>
+            <div class="detail-item">
+              <strong>350+</strong>
+              <span>client relationships spanning developers, brokerages, and investors</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-rail">
+          <article class="rail-card reveal">
+            <div class="pill">Strategic premise</div>
+            <h3>Less noise. More authority.</h3>
+            <p>The visual language now leans on layered type, disciplined spacing, and advisory-led credibility. It trades spectacle for poise while keeping the sense of prestige the brand requires.</p>
+          </article>
+
+          <article class="rail-card dark reveal">
+            <div class="pill">Client lens</div>
+            <h3>Built for employers and candidates who expect clarity.</h3>
+            <p>Every panel is structured to feel intentional: considered hierarchy, restrained contrast, and a stronger relationship between message, data, and call to action.</p>
+            <div class="rail-grid">
+              <div>
+                <strong>Executive search</strong>
+                <span>Board, C-suite, and senior leadership appointments</span>
+              </div>
+              <div>
+                <strong>Career strategy</strong>
+                <span>Confidential advice for ambitious real estate professionals</span>
+              </div>
+              <div>
+                <strong>Market intelligence</strong>
+                <span>Compensation, talent mapping, and hiring strategy</span>
+              </div>
+              <div>
+                <strong>Sector reach</strong>
+                <span>Luxury, investment, development, brokerage, and PropTech</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="quote-panel">
+          <article class="quote-card reveal">
+            <p class="quote">"We do not simply fill vacancies. We orchestrate appointments that change the trajectory of teams, careers, and investment platforms."</p>
+            <div class="quote-note">The new composition positions Brightstone as a high-trust advisor: articulate, measured, and unmistakably premium.</div>
+          </article>
+          <div class="feature-stack">
+            <article class="feature-card reveal">
+              <h3>Editorial hierarchy</h3>
+              <p>Large serif statements create presence while the supporting system uses disciplined sans-serif typography for navigation, metadata, and action.</p>
+            </article>
+            <article class="feature-card reveal">
+              <h3>Luxury restraint</h3>
+              <p>The palette shifts to forest, stone, and warm bronze, giving the page a richer mood without relying on heavy decoration.</p>
+            </article>
+            <article class="feature-card reveal">
+              <h3>Advisory confidence</h3>
+              <p>Spacing, cards, and section flow borrow more from consulting and high-end editorial platforms than from conventional recruitment templates.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="mini-label">Core capabilities</div>
+            <h2 class="section-title">A more elevated way to present <em>Brightstone's offer</em></h2>
+          </div>
+          <p class="section-copy">Rather than dozens of visually competing modules, this redesign consolidates the proposition into a few highly legible blocks. That makes the experience feel calmer, more expensive, and easier to trust.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <h3>Executive Search</h3>
+            <p>Senior mandates handled with market fluency, confidentiality, and a stronger emphasis on strategic fit than transactional speed.</p>
+            <span class="kicker">Board and leadership appointments</span>
+          </article>
+          <article class="service-card reveal">
+            <h3>Talent Placement</h3>
+            <p>Structured recruitment for growth-stage and established real estate businesses across sales, development, investment, operations, and management.</p>
+            <span class="kicker">Precision hiring across every level</span>
+          </article>
+          <article class="service-card reveal">
+            <h3>Market Advisory</h3>
+            <p>Intelligence-led support around remuneration, competitor mapping, talent availability, succession planning, and strategic team design.</p>
+            <span class="kicker">Intelligence before execution</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="advisory">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="mini-label">Performance in context</div>
+            <h2 class="section-title">Data is more persuasive when the design lets it breathe.</h2>
+          </div>
+          <p class="section-copy">The metrics are now given more room and more contrast, closer to an annual report or consulting presentation than a promotional counter strip.</p>
+        </div>
+
+        <div class="stat-band reveal">
+          <article class="stat-card">
+            <span class="stat-number" data-count="1200">1,200+</span>
+            <span class="stat-label">Placements delivered</span>
+            <p>Strategic appointments across the full real estate operating model, from front-office producers to executive leadership.</p>
+          </article>
+          <article class="stat-card">
+            <span class="stat-number" data-count="98">98%</span>
+            <span class="stat-label">Two-year retention</span>
+            <p>A reflection of deliberate matching, informed advisory, and a more careful approach to long-term fit.</p>
+          </article>
+          <article class="stat-card">
+            <span class="stat-number" data-count="350">350+</span>
+            <span class="stat-label">Client partners</span>
+            <p>Relationships spanning developers, brokerages, investment firms, asset owners, and specialist platforms.</p>
+          </article>
+          <article class="stat-card">
+            <span class="stat-number" data-count="15">15+</span>
+            <span class="stat-label">Years of authority</span>
+            <p>Depth of local market knowledge that gives Brightstone a more assured and consultative market position.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sectors">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="mini-label">Sector coverage</div>
+            <h2 class="section-title">A cleaner sector story with <em>fewer, stronger moments</em></h2>
+          </div>
+          <p class="section-copy">The sector section becomes a refined three-column editorial mosaic - each card designed to feel substantial enough for executive audiences.</p>
+        </div>
+
+        <div class="sector-grid">
+          <article class="sector-card reveal">
+            <div>
+              <span class="index">01 / Development</span>
+              <h3>Developers and project leadership</h3>
+              <p>Appointments across development management, delivery, marketing, sales leadership, and executive oversight for complex growth platforms.</p>
+            </div>
+            <span class="kicker">Primary market, mixed-use, large-scale delivery</span>
+          </article>
+          <article class="sector-card reveal">
+            <div>
+              <span class="index">02 / Brokerage and investment</span>
+              <h3>Revenue, capital, and advisory talent</h3>
+              <p>High-performing brokerage teams, investment specialists, asset managers, and client-facing professionals trusted with premium mandates.</p>
+            </div>
+            <span class="kicker">Luxury, secondary market, institutional capital</span>
+          </article>
+          <article class="sector-card reveal">
+            <div>
+              <span class="index">03 / Operations and innovation</span>
+              <h3>Property management, PropTech, and support functions</h3>
+              <p>Operational leadership and platform talent that keeps assets performing and new property businesses scaling with confidence.</p>
+            </div>
+            <span class="kicker">Operations, data, customer experience, digital</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="method">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="mini-label">Methodology</div>
+            <h2 class="section-title">A more elegant reading of the recruitment process.</h2>
+          </div>
+          <p class="section-copy">Instead of dense accordions and decorative motion, the methodology is presented as a calm sequence - more legible, more executive, and more persuasive.</p>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-row">
+            <div class="timeline-index">01 / Brief</div>
+            <div class="timeline-copy">
+              <h3>Strategic briefing and role architecture</h3>
+              <p>We start by clarifying commercial context, leadership expectations, compensation positioning, reporting lines, and the qualities that define success beyond the job description.</p>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-index">02 / Search</div>
+            <div class="timeline-copy">
+              <h3>Targeted market activation</h3>
+              <p>Brightstone activates trusted networks, passive talent channels, and live market intelligence to build a credible, discreet shortlist of serious candidates.</p>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-index">03 / Assessment</div>
+            <div class="timeline-copy">
+              <h3>Evaluation with commercial judgment</h3>
+              <p>Screening extends beyond capability into motivation, timing, chemistry, trajectory, and the conditions required for a placement to endure.</p>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-index">04 / Landing</div>
+            <div class="timeline-copy">
+              <h3>Offer alignment and integration support</h3>
+              <p>We manage final alignment with discretion and clarity, then stay close through the critical transition period to support retention and performance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="mini-label">Dual audience</div>
+            <h2 class="section-title">Two audiences. One consistent standard.</h2>
+          </div>
+          <p class="section-copy">The new design lets employers and candidates feel equally addressed without splitting the page into disconnected visual languages.</p>
+        </div>
+
+        <div class="split-grid">
+          <article class="split-panel reveal">
+            <h3>For employers</h3>
+            <p>A more intelligent way to present search, placement, and advisory services - designed to reassure founders, leadership teams, and investors that Brightstone operates with discipline.</p>
+            <ul class="split-list">
+              <li>Executive and senior leadership search</li>
+              <li>Hiring strategy and organisational planning</li>
+              <li>Compensation and talent availability insight</li>
+              <li>High-trust candidate presentation and process management</li>
+            </ul>
+          </article>
+          <article class="split-panel dark reveal">
+            <h3>For candidates</h3>
+            <p>The candidate narrative becomes more refined and selective, positioning Brightstone as a strategic career advisor rather than a generic listings intermediary.</p>
+            <ul class="split-list">
+              <li>Confidential profile registration and market representation</li>
+              <li>Career consultation and progression planning</li>
+              <li>Relocation support for international professionals</li>
+              <li>Priority access to premium real estate opportunities</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="mini-label">Contact</div>
+            <h2 class="section-title">A closing section with more warmth, fewer distractions, and clearer next steps.</h2>
+          </div>
+          <p class="section-copy">The contact experience is redesigned as a premium conversation starter rather than a generic lead form.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card dark reveal">
+            <h3>Begin the conversation</h3>
+            <p>Every meaningful appointment starts with context. Tell Brightstone whether you are hiring, repositioning your career, or looking for strategic market guidance.</p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">info@bpr.ae</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Dubai, United Arab Emirates</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Response window</span>
+                <span class="contact-value">Senior consultant reply within 24 hours</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="contact-card reveal">
+            <h3>Request a confidential discussion</h3>
+            <form class="form-grid">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input id="name" type="text" placeholder="Your full name">
+              </div>
+              <div class="field">
+                <label for="org">Organisation</label>
+                <input id="org" type="text" placeholder="Company or current employer">
+              </div>
+              <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" type="email" placeholder="name@example.com">
+              </div>
+              <div class="field">
+                <label for="enquiry">Enquiry type</label>
+                <select id="enquiry">
+                  <option>Select an enquiry</option>
+                  <option>Employer - Executive Search</option>
+                  <option>Employer - Talent Placement</option>
+                  <option>Candidate - Career Consultation</option>
+                  <option>Candidate - Relocation Support</option>
+                  <option>Market Advisory</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="message">How can Brightstone help?</label>
+                <textarea id="message" placeholder="Share the role, brief, or career ambition you would like to discuss."></textarea>
+              </div>
+              <div class="field full">
+                <button type="button" class="button button-primary">Submit enquiry</button>
+              </div>
+            </form>
+            <div class="signature-strip">
+              <strong>Editorial redesign note</strong>
+              <span>This standalone file intentionally ends before the footer so the new footer can be evaluated separately.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const revealItems = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("on");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.14 });
+
+revealItems.forEach((item) => {
+  if (!item.classList.contains("on")) {
+    observer.observe(item);
+  }
+});
+
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+
+    const el = entry.target;
+    const raw = el.getAttribute("data-count");
+    const target = Number(raw);
+    const suffix = el.textContent.replace(/[0-9]/g, "").replace(/\s+/g, "");
+    let current = 0;
+    const step = Math.max(1, Math.ceil(target / 48));
+
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+
+      el.textContent = current.toLocaleString() + suffix;
+    }, 28);
+
+    statObserver.unobserve(el);
+  });
+}, { threshold: 0.45 });
+
+document.querySelectorAll("[data-count]").forEach((item) => statObserver.observe(item));
+</script>
+</body>
+</html>
