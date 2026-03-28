@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brightstone Property Recruitment</title>
+  <meta
+    name="description"
+    content="Brightstone Property Recruitment is a premium Dubai real estate recruitment partner connecting employers and professionals through executive search, strategic hiring, and market intelligence."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --ink: #11263a;
+      --ink-soft: #4d6276;
+      --sand: #f5f0e8;
+      --sand-deep: #ebe3d8;
+      --white: #ffffff;
+      --line: rgba(17, 38, 58, 0.12);
+      --line-dark: rgba(255, 255, 255, 0.16);
+      --accent: #8d7359;
+      --accent-soft: rgba(141, 115, 89, 0.14);
+      --navy-panel: #142739;
+      --navy-panel-2: #1a3148;
+      --shadow: 0 24px 60px rgba(17, 38, 58, 0.12);
+      --radius: 28px;
+      --container: min(1180px, calc(100% - 48px));
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--sand);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .page-shell {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-shell::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at top right, rgba(141, 115, 89, 0.12), transparent 34%),
+        radial-gradient(circle at left center, rgba(17, 38, 58, 0.05), transparent 40%);
+      z-index: -2;
+    }
+
+    .page-shell::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(17, 38, 58, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 38, 58, 0.025) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 75%);
+      z-index: -1;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-dark {
+      background:
+        linear-gradient(180deg, rgba(20, 39, 57, 0.98), rgba(18, 33, 47, 1));
+      color: var(--white);
+      position: relative;
+    }
+
+    .section-dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(141, 115, 89, 0.2), transparent 28%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent 40%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.6;
+    }
+
+    .section-dark .eyebrow {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .headline {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3rem, 7vw, 6.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .headline em,
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .section-dark .headline em,
+    .section-dark .section-title em {
+      color: #d3ba9c;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.5rem, 4vw, 4.6rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .lede,
+    .section-copy,
+    .card-copy,
+    .list-copy,
+    .timeline-copy,
+    .contact-copy {
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+    }
+
+    .section-dark .lede,
+    .section-dark .section-copy,
+    .section-dark .card-copy,
+    .section-dark .list-copy,
+    .section-dark .timeline-copy,
+    .section-dark .contact-copy {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(245, 240, 232, 0.84);
+      border-bottom: 1px solid rgba(17, 38, 58, 0.08);
+    }
+
+    .topbar-inner {
+      width: var(--container);
+      margin: 0 auto;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.5);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.5rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      transition: color 0.25s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--ink);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: 0 12px 32px rgba(17, 38, 58, 0.14);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      background: #1b3249;
+      box-shadow: 0 18px 38px rgba(17, 38, 58, 0.16);
+    }
+
+    .button-secondary {
+      border-color: var(--line);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.46);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      background: var(--white);
+    }
+
+    .section-dark .button-primary {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .section-dark .button-primary:hover,
+    .section-dark .button-primary:focus-visible {
+      background: #f2ece3;
+    }
+
+    .section-dark .button-secondary {
+      border-color: var(--line-dark);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .hero {
+      padding: 72px 0 92px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "B";
+      position: absolute;
+      top: 68px;
+      right: clamp(-30px, 5vw, 20px);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: min(38vw, 490px);
+      line-height: 0.8;
+      color: rgba(17, 38, 58, 0.04);
+      letter-spacing: -0.08em;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      gap: 52px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      padding-right: 24px;
+    }
+
+    .hero .lede {
+      max-width: 680px;
+      font-size: 1.08rem;
+      margin: 30px 0 0;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+    }
+
+    .hero-side {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-panel,
+    .quote-panel,
+    .card,
+    .contact-panel,
+    .insight-card,
+    .timeline-item,
+    .segment-panel {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(17, 38, 58, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel {
+      padding: 28px;
+    }
+
+    .hero-panel.small {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 22px;
+    }
+
+    .hero-panel h2,
+    .hero-panel h3,
+    .card h3,
+    .insight-card h3,
+    .contact-panel h3,
+    .segment-panel h3 {
+      margin: 0 0 10px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+    }
+
+    .hero-kicker,
+    .mini-label,
+    .card-label,
+    .timeline-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .stat {
+      padding: 16px 14px;
+      border-radius: 20px;
+      background: rgba(17, 38, 58, 0.04);
+      border: 1px solid rgba(17, 38, 58, 0.06);
+      min-width: 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.35rem;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .stat span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.8fr);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 52px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.85fr);
+      gap: 34px;
+      padding: 36px;
+    }
+
+    .quote {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 3.5vw, 3.3rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+    }
+
+    .quote strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .service-grid,
+    .insight-grid,
+    .contact-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 60px rgba(17, 38, 58, 0.16);
+      border-color: rgba(17, 38, 58, 0.14);
+    }
+
+    .card-index {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      margin-bottom: 26px;
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .split-panels {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .segment-panel {
+      padding: 34px;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .segment-panel::after {
+      content: attr(data-mark);
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 4.8rem;
+      line-height: 0.8;
+      color: rgba(255, 255, 255, 0.06);
+      letter-spacing: -0.05em;
+    }
+
+    .segment-panel .card-copy,
+    .segment-panel .list-copy {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .roles-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .role-item {
+      display: grid;
+      grid-template-columns: 130px minmax(0, 1fr) 42px;
+      gap: 24px;
+      align-items: start;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .role-item .mini-label {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .role-item h3 {
+      margin: 0 0 8px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+    }
+
+    .role-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: grid;
+      place-items: center;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1rem;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 22px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      padding: 24px 26px;
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .timeline-step {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.6rem;
+      background: rgba(141, 115, 89, 0.08);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .metric {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 36px 28px;
+      min-height: 100%;
+    }
+
+    .metric strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.6rem, 4vw, 4.3rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .metric p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.96rem;
+    }
+
+    .insight-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .insight-card {
+      padding: 0;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .insight-visual {
+      padding: 26px 28px 34px;
+      min-height: 210px;
+      display: flex;
+      align-items: flex-end;
+      background:
+        linear-gradient(180deg, rgba(17, 38, 58, 0.1), rgba(17, 38, 58, 0.22)),
+        linear-gradient(135deg, rgba(141, 115, 89, 0.25), rgba(17, 38, 58, 0.15));
+      position: relative;
+    }
+
+    .insight-visual::after {
+      content: attr(data-index);
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 4.8rem;
+      line-height: 0.8;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: -0.05em;
+    }
+
+    .insight-body {
+      padding: 28px;
+    }
+
+    .insight-meta {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+
+    .contact-grid {
+      grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+      align-items: start;
+    }
+
+    .contact-panel {
+      padding: 34px;
+      min-height: 100%;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .contact-value {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.6rem;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .quote-box {
+      margin-top: 26px;
+      padding: 24px;
+      background: rgba(141, 115, 89, 0.08);
+      border-radius: 22px;
+      border: 1px solid rgba(141, 115, 89, 0.16);
+    }
+
+    .quote-box p {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .quote-box span {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(17, 38, 58, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 16px 18px;
+      color: var(--ink);
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .field textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: rgba(17, 38, 58, 0.28);
+      box-shadow: 0 0 0 4px rgba(17, 38, 58, 0.06);
+      background: var(--white);
+    }
+
+    .cta-band {
+      padding: 92px 0 110px;
+    }
+
+    .cta-card {
+      padding: 46px;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(20, 39, 57, 0.98), rgba(24, 46, 67, 0.96));
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(17, 38, 58, 0.2);
+    }
+
+    .cta-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(211, 186, 156, 0.2), transparent 30%),
+        linear-gradient(120deg, rgba(255, 255, 255, 0.04), transparent 45%);
+      pointer-events: none;
+    }
+
+    .cta-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .section-heading,
+      .quote-panel,
+      .path-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid,
+      .insight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-copy {
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .section {
+        padding: 84px 0;
+      }
+
+      .topbar {
+        position: static;
+      }
+
+      .topbar-inner {
+        padding: 16px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 16px;
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .hero::before {
+        top: 42px;
+        right: -18px;
+        font-size: min(56vw, 300px);
+      }
+
+      .hero-panel.small,
+      .service-grid,
+      .split-panels,
+      .insight-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .role-item {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-step {
+        width: 60px;
+        height: 60px;
+      }
+
+      .cta-card,
+      .contact-panel,
+      .quote-panel,
+      .card,
+      .segment-panel {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a href="#top" class="brand" aria-label="Brightstone Property Recruitment home">
+          <div class="brand-mark">B</div>
+          <div class="brand-text">
+            <span class="brand-name">Brightstone</span>
+            <span class="brand-sub">Property Recruitment</span>
+          </div>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#specialisms">Specialisms</a>
+          <a href="#approach">Approach</a>
+          <a href="#insights">Insights</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">Dubai's real estate recruitment authority</div>
+            <h1 class="headline">
+              We do not <em>fill positions.</em><br>
+              We architect <span>futures.</span>
+            </h1>
+            <p class="lede">
+              Brightstone Property Recruitment connects ambitious organisations with exceptional professionals across Dubai's property market. Every engagement is built on discretion, sector expertise, and a more considered standard of executive search and talent advisory.
+            </p>
+            <div class="button-row hero-actions">
+              <a class="button button-primary" href="#contact">Engage our services</a>
+              <a class="button button-secondary" href="#specialisms">Explore specialisms</a>
+            </div>
+          </div>
+
+          <div class="hero-side reveal">
+            <div class="hero-panel">
+              <span class="hero-kicker">Advisory focus</span>
+              <h2>Executive search with market depth.</h2>
+              <p class="card-copy">
+                From senior developer appointments and brokerage leadership to investment, construction, luxury, and property technology roles, BPR provides refined hiring support for the most business-critical mandates in the market.
+              </p>
+            </div>
+            <div class="hero-panel small" aria-label="Key performance statistics">
+              <div class="stat">
+                <strong>1,200+</strong>
+                <span>Placements delivered</span>
+              </div>
+              <div class="stat">
+                <strong>98%</strong>
+                <span>Two-year retention</span>
+              </div>
+              <div class="stat">
+                <strong>350+</strong>
+                <span>Client partners</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="quote-panel reveal">
+            <div>
+              <div class="eyebrow">Manifesto</div>
+              <p class="quote">
+                "We do not merely fill positions. We <strong>build careers</strong>, shape <strong>high-performance teams</strong>, and create <strong>enduring strategic advantage</strong>."
+              </p>
+            </div>
+            <div>
+              <p class="section-copy">
+                Brightstone Property Recruitment was built for a market that demands precision. Our role is to bring clarity, confidence, and measurable commercial value to every hiring decision by combining deep market knowledge with a more disciplined, partnership-led approach to recruitment.
+              </p>
+              <p class="section-copy">
+                We work across employer and candidate mandates with the same philosophy: thoughtful consultation, stronger fit, sharper presentation, and outcomes that last beyond the initial appointment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">Our services</div>
+              <h2 class="section-title">A more elegant standard of <em>recruitment advisory</em></h2>
+            </div>
+            <p class="section-copy">
+              BPR delivers tailored search, placement, and market intelligence services to organisations that require more than speed. We help clients hire with precision, structure, and a long-term view of leadership quality.
+            </p>
+          </div>
+
+          <div class="service-grid">
+            <article class="card reveal">
+              <div class="card-index">01</div>
+              <span class="card-label">Executive search</span>
+              <h3>Leadership appointments</h3>
+              <p class="card-copy">
+                Discreet search for senior figures who influence commercial performance, organisational culture, and long-term strategic direction across Dubai's property sector.
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-index">02</div>
+              <span class="card-label">Talent placement</span>
+              <h3>Permanent hiring</h3>
+              <p class="card-copy">
+                Carefully matched appointments across sales, development, investment, operations, and support functions with a focus on quality, fit, and retention.
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-index">03</div>
+              <span class="card-label">Strategic advisory</span>
+              <h3>Consultancy support</h3>
+              <p class="card-copy">
+                Hiring strategy, team design, salary benchmarking, succession planning, and market mapping shaped around your current and future talent requirements.
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-index">04</div>
+              <span class="card-label">Specialist hiring</span>
+              <h3>Niche property mandates</h3>
+              <p class="card-copy">
+                Support for highly specialised roles across luxury residential, commercial, industrial, holiday homes, post-sales, and emerging property technology businesses.
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-index">05</div>
+              <span class="card-label">Candidate advisory</span>
+              <h3>Career progression</h3>
+              <p class="card-copy">
+                Confidential representation, relocation guidance, career consultation, and market positioning for high-performing professionals in Dubai's real estate landscape.
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <div class="card-index">06</div>
+              <span class="card-label">Market intelligence</span>
+              <h3>Commercial insight</h3>
+              <p class="card-copy">
+                Evidence-led hiring intelligence informed by active mandates, live compensation data, and continuous conversation with employers and candidates across the market.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark" id="specialisms">
+        <div class="container" style="position: relative; z-index: 1;">
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">Market coverage</div>
+              <h2 class="section-title">Deep expertise across <em>every major segment</em></h2>
+            </div>
+            <p class="section-copy">
+              Our networks span the full breadth of Dubai's real estate ecosystem, allowing us to advise across mature disciplines and more exacting niche appointments with equal confidence.
+            </p>
+          </div>
+
+          <div class="split-panels">
+            <article class="segment-panel reveal" data-mark="PM">
+              <span class="card-label">Primary and secondary market</span>
+              <h3>Sales, brokerage, and development talent</h3>
+              <p class="card-copy">
+                We recruit for developer sales teams, senior brokers, team leaders, project leadership, investor-facing mandates, and professionals operating across new launch and resale environments.
+              </p>
+            </article>
+
+            <article class="segment-panel reveal" data-mark="LX">
+              <span class="card-label">Luxury and UHNW advisory</span>
+              <h3>High-touch client specialists</h3>
+              <p class="card-copy">
+                BPR identifies professionals with the discretion, gravitas, and international exposure required to advise the most sophisticated buyers, investors, and private clients.
+              </p>
+            </article>
+
+            <article class="segment-panel reveal" data-mark="IN">
+              <span class="card-label">Investment and operations</span>
+              <h3>Institutional and portfolio appointments</h3>
+              <p class="card-copy">
+                From asset managers and acquisition specialists to property operations leaders, we support mandates where financial acuity and commercial judgment are indispensable.
+              </p>
+            </article>
+
+            <article class="segment-panel reveal" data-mark="PT">
+              <span class="card-label">PropTech and innovation</span>
+              <h3>Digital real estate leadership</h3>
+              <p class="card-copy">
+                Product, growth, data, and platform leadership for businesses modernising how property is marketed, transacted, and managed across the region.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="container" style="position: relative; z-index: 1;">
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">Selected opportunities</div>
+              <h2 class="section-title">Roles across <em>every specialism</em></h2>
+            </div>
+            <p class="section-copy">
+              Our active client roster includes developers, brokerages, investors, construction groups, proptech businesses, and specialist operators seeking commercially important talent at every level.
+            </p>
+          </div>
+
+          <div class="roles-list reveal">
+            <div class="role-item">
+              <div class="mini-label">Development</div>
+              <div>
+                <h3>Developer and project leadership</h3>
+                <p class="list-copy">
+                  Directors, development managers, and operational leaders guiding major launches, large-scale schemes, and end-to-end delivery programmes.
+                </p>
+              </div>
+              <div class="role-arrow">-></div>
+            </div>
+
+            <div class="role-item">
+              <div class="mini-label">Brokerage</div>
+              <div>
+                <h3>Elite brokerage and sales professionals</h3>
+                <p class="list-copy">
+                  High-performing brokers, team leads, and revenue-driving sales directors with established networks and consistent transaction credibility.
+                </p>
+              </div>
+              <div class="role-arrow">-></div>
+            </div>
+
+            <div class="role-item">
+              <div class="mini-label">Investment</div>
+              <div>
+                <h3>Investment and asset management</h3>
+                <p class="list-copy">
+                  Portfolio, acquisitions, and fund-side talent with the analytical depth to drive stronger deployment, asset optimisation, and investment outcomes.
+                </p>
+              </div>
+              <div class="role-arrow">-></div>
+            </div>
+
+            <div class="role-item">
+              <div class="mini-label">Construction</div>
+              <div>
+                <h3>Construction and technical leadership</h3>
+                <p class="list-copy">
+                  Project managers, commercial leads, and delivery specialists operating in fast-paced environments where quality and execution matter equally.
+                </p>
+              </div>
+              <div class="role-arrow">-></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="path-grid">
+            <div class="reveal">
+              <div class="eyebrow">For employers and candidates</div>
+              <h2 class="section-title">Two audiences. <em>One standard</em> of service.</h2>
+              <p class="section-copy">
+                BPR supports hiring organisations with market-shaping appointments and represents professionals seeking more strategic career progression in Dubai. Both sides of the market receive the same measured, confidential, and quality-led experience.
+              </p>
+            </div>
+
+            <div class="split-panels">
+              <article class="card reveal">
+                <span class="card-label">For employers</span>
+                <h3>Build stronger teams</h3>
+                <p class="card-copy">
+                  Search strategy, candidate presentation, interview guidance, offer management, and onboarding support structured around the quality of the final appointment.
+                </p>
+              </article>
+
+              <article class="card reveal">
+                <span class="card-label">For candidates</span>
+                <h3>Advance with intention</h3>
+                <p class="card-copy">
+                  Market intelligence, opportunity matching, relocation advice, and discreet career consultation for ambitious real estate professionals ready for their next move.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="approach">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">Our approach</div>
+              <h2 class="section-title">A structured path to <em>transformative placement</em></h2>
+            </div>
+            <p class="section-copy">
+              Our methodology is clear, deliberate, and commercially grounded. It combines live market intelligence with a more exacting evaluation process so clients can hire with greater confidence.
+            </p>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <div class="timeline-step">01</div>
+              <div>
+                <div class="timeline-label">Strategic briefing</div>
+                <h3>Define the role with precision</h3>
+                <p class="timeline-copy">
+                  We begin with a detailed discussion covering team structure, leadership context, role scope, compensation positioning, and the commercial impact expected from the appointment.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-step">02</div>
+              <div>
+                <div class="timeline-label">Market activation</div>
+                <h3>Access active and passive talent</h3>
+                <p class="timeline-copy">
+                  Search is conducted across established networks, market-mapped targets, referral channels, and carefully managed direct approaches to passive candidates.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-step">03</div>
+              <div>
+                <div class="timeline-label">Evaluation</div>
+                <h3>Present only relevant candidates</h3>
+                <p class="timeline-copy">
+                  Each shortlisted profile is assessed for capability, trajectory, cultural fit, motivation, and likely retention so client time is spent only on genuinely strong options.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-step">04</div>
+              <div>
+                <div class="timeline-label">Offer and onboarding</div>
+                <h3>Convert and integrate successfully</h3>
+                <p class="timeline-copy">
+                  We support negotiation, manage expectations on both sides, and remain involved during onboarding to improve integration, confidence, and long-term appointment success.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark">
+        <div class="container" style="position: relative; z-index: 1;">
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">Proven performance</div>
+              <h2 class="section-title">Impact that can be <em>measured</em></h2>
+            </div>
+            <p class="section-copy">
+              We judge success by the quality and longevity of the appointments we make, not by the volume of CVs circulated or the speed of a process run without sufficient thought.
+            </p>
+          </div>
+
+          <div class="metrics reveal">
+            <div class="metric">
+              <strong>1,200+</strong>
+              <span>Placements</span>
+              <p>Appointments delivered across sales, leadership, technical, investment, and operational functions.</p>
+            </div>
+            <div class="metric">
+              <strong>98%</strong>
+              <span>Retention</span>
+              <p>Two-year retention performance that reflects careful matching, stronger briefing, and better candidate evaluation.</p>
+            </div>
+            <div class="metric">
+              <strong>350+</strong>
+              <span>Partners</span>
+              <p>Active client relationships spanning major developers, brokerages, investors, and specialist real estate businesses.</p>
+            </div>
+            <div class="metric">
+              <strong>15+</strong>
+              <span>Years</span>
+              <p>Continuous market practice within Dubai real estate, building the networks and judgment that distinguish premium advisory work.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="insights">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">Insights and research</div>
+              <h2 class="section-title">Thoughtful commentary for <em>better hiring decisions</em></h2>
+            </div>
+            <p class="section-copy">
+              BPR publishes concise intelligence on compensation, talent movement, executive hiring, and career progression to help clients and candidates navigate the market with more clarity.
+            </p>
+          </div>
+
+          <div class="insight-grid">
+            <article class="insight-card reveal">
+              <div class="insight-visual" data-index="01">
+                <div>
+                  <span class="card-label">Market intelligence</span>
+                  <h3>Dubai talent market outlook</h3>
+                </div>
+              </div>
+              <div class="insight-body">
+                <span class="insight-meta">March 2026</span>
+                <p class="card-copy">
+                  Salary movement, talent availability, and the practical implications for employers competing for high-calibre real estate talent.
+                </p>
+              </div>
+            </article>
+
+            <article class="insight-card reveal">
+              <div class="insight-visual" data-index="02">
+                <div>
+                  <span class="card-label">Executive search</span>
+                  <h3>Why senior talent is harder to secure</h3>
+                </div>
+              </div>
+              <div class="insight-body">
+                <span class="insight-meta">February 2026</span>
+                <p class="card-copy">
+                  A closer look at passive candidate expectations, discretion, and the difference between transactional recruiters and true search partners.
+                </p>
+              </div>
+            </article>
+
+            <article class="insight-card reveal">
+              <div class="insight-visual" data-index="03">
+                <div>
+                  <span class="card-label">Career intelligence</span>
+                  <h3>Progressing in Dubai real estate</h3>
+                </div>
+              </div>
+              <div class="insight-body">
+                <span class="insight-meta">January 2026</span>
+                <p class="card-copy">
+                  Guidance for ambitious professionals assessing when to move, what employers value, and how to position themselves for stronger mandates.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <div class="cta-card reveal">
+            <div class="eyebrow">Begin your engagement</div>
+            <h2 class="section-title">Build the team you need. Secure <em>exceptional talent.</em></h2>
+            <p class="contact-copy" style="max-width: 760px;">
+              Whether you are hiring a transformative leader or considering your next move in Dubai's property market, BPR provides the counsel, access, and market clarity needed to move decisively.
+            </p>
+            <div class="button-row" style="margin-top: 28px;">
+              <a class="button button-primary" href="#contact">Speak with BPR</a>
+              <a class="button button-secondary" href="#services">Review services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" style="padding-top: 0;">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">Contact</div>
+              <h2 class="section-title">Begin the <em>conversation</em></h2>
+            </div>
+            <p class="section-copy">
+              Every enquiry is handled with care and confidentiality by a senior consultant. Use the contact form below or reach out directly to discuss employer mandates, candidate representation, or market advice.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <aside class="contact-panel reveal">
+              <span class="card-label">Brightstone Property Recruitment</span>
+              <h3>Dubai, United Arab Emirates</h3>
+              <p class="contact-copy">
+                Executive search, talent placement, candidate advisory, and strategic recruitment consultancy for the real estate sector.
+              </p>
+
+              <div class="contact-list">
+                <div class="contact-item">
+                  <div class="contact-label">Email</div>
+                  <div class="contact-value">info@bpr.ae</div>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-label">Website</div>
+                  <div class="contact-value">www.bpr.ae</div>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-label">Response commitment</div>
+                  <div class="contact-value">Within 24 hours</div>
+                </div>
+              </div>
+
+              <div class="quote-box">
+                <p>
+                  "The quality of every engagement reflects the quality of every relationship. At BPR, relationships are built on honesty, expertise, and results."
+                </p>
+                <span>BPR leadership team</span>
+              </div>
+            </aside>
+
+            <div class="contact-panel reveal">
+              <form class="form-grid" id="enquiry-form">
+                <div class="field">
+                  <label for="name">Full name</label>
+                  <input id="name" name="name" type="text" placeholder="Your full name">
+                </div>
+
+                <div class="field">
+                  <label for="organisation">Organisation</label>
+                  <input id="organisation" name="organisation" type="text" placeholder="Your organisation">
+                </div>
+
+                <div class="field">
+                  <label for="email">Email address</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com">
+                </div>
+
+                <div class="field">
+                  <label for="type">Enquiry type</label>
+                  <select id="type" name="type">
+                    <option value="">Select enquiry type</option>
+                    <option>Employer - Executive Search</option>
+                    <option>Employer - Talent Placement</option>
+                    <option>Employer - Strategic Consultancy</option>
+                    <option>Candidate - Career Placement</option>
+                    <option>Candidate - Career Consultation</option>
+                    <option>Candidate - Relocation Support</option>
+                    <option>BPR Academy Enquiry</option>
+                    <option>Partnership Discussion</option>
+                    <option>General Enquiry</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" placeholder="Please describe your requirements and how BPR can assist you."></textarea>
+                </div>
+
+                <div class="field full">
+                  <button class="button button-primary" type="submit" id="submit-button">Submit enquiry</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.16,
+        rootMargin: "0px 0px -40px 0px"
+      });
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+
+    const form = document.getElementById("enquiry-form");
+    const submitButton = document.getElementById("submit-button");
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      submitButton.textContent = "Enquiry submitted";
+      submitButton.disabled = true;
+
+      window.setTimeout(() => {
+        submitButton.textContent = "Submit enquiry";
+        submitButton.disabled = false;
+      }, 2400);
+    });
+  </script>
+</body>
+</html>
